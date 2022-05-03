@@ -98,12 +98,12 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
             })}
           </div>
         </div>
-        <div className="flex-1 flex items-center justify-center relative">
+        <div className="flex-1 flex items-center justify-center">
           <Image
             src="/assets/images/iphone.svg"
-            layout="fill"
             alt="DPL Application"
-            objectFit="contain"
+            width={900}
+            height={900}
           />
         </div>
       </div>
@@ -141,12 +141,12 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
             Get The List
           </button>
         </div>
-        <div className="relative flex-1 h-160 ml-20">
+        <div className="relative flex-1 h-160 ml-20 flex items-center">
           <Image
             alt="price list video"
             src="/assets/images/priceListVideo.gif"
-            layout="fill"
-            objectFit="contain"
+            width={800}
+            height={465}
           />
         </div>
       </div>
@@ -154,13 +154,21 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
       <div className="flex items-center justify-between border border-primary-30  py-12 px-20 bg-transparent">
         <div>
           <h1 className="font-bold text-3xl">Your Diamonds, Your Prices</h1>
-          <p className="text-base max-w-[36ch] mt-2">
+          <p className="text-base max-w-[38ch] mt-2">
             The DPL is based on a clear, objective and transparent methodology,
             and is uninfluenced by interested parties. It uses the largest data
             set of asking prices in the world and delivers a price list that is
             both accurate and reliable. Your diamonds, your prices reflect our
             promise to remain completely objective and openly transparent.
           </p>
+        </div>
+        <div className="flex items-center">
+          <Image
+            src="/assets/images/ai-video.png"
+            width={350}
+            height={196}
+            alt="video"
+          />
         </div>
       </div>
       {/* Go Straight to app */}
