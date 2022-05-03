@@ -6,6 +6,20 @@
   --white: #ffffff;
   --black: #0a0a0a;
   --gray: #e0e0e0;
+  --clr-primary-100: #0a0a0a;
+  --clr-primary-90: #424242;
+  --clr-primary-80: #616161;
+  --clr-primary-70: #757575;
+  --clr-primary-60: #9e9e9e;
+  --clr-primary-50: #e0e0e0;
+  --clr-primary-40: #e0e0e0;
+  --clr-primary-30: #ededed;
+  --clr-primary-20: #f5f5f5;
+  --clr-primary-10: #ffffff;
+  --clr-success-50: #01b047;
+  --clr-success-100: #e9faf0;
+  --clr-error-50: #ff0202;
+  --clr-error-100: #fff1f1;
 }
 
 html,
@@ -13,4 +27,17 @@ body,
 #__next {
   height: 100%;
   background: #ffffff;
+}
+
+* {
+  font-family: Mulish, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: var(--clr-primary-100);
 }
