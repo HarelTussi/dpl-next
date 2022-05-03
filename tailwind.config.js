@@ -47,6 +47,20 @@ module.exports = {
         17: "68px",
         18: "72px",
       },
+      maxWidth: {
+        "36ch": "36ch",
+        "54ch": "54ch",
+      },
+      spacing: {
+        "-10px": "-10px",
+        "-2px": "-2px",
+        "-1px": "-1px",
+        "1px": "1px",
+        "96px": "96px",
+      },
+      height: {
+        160: "40rem",
+      },
     },
   },
   plugins: [],
