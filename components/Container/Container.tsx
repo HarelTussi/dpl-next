@@ -1,7 +1,7 @@
 import { clsx } from "@utils/index";
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   withLines?: boolean;
   className?: string;
 };
