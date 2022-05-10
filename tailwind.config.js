@@ -61,6 +61,9 @@ module.exports = {
       height: {
         160: "40rem",
       },
+      screens: {
+        "2xl": "1440px",
+      },
     },
   },
   plugins: [],

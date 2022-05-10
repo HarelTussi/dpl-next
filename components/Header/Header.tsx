@@ -1,5 +1,7 @@
+import Button from "@components/Button";
 import { useScrollContext } from "contexts/ScrollContext";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {};
 
@@ -9,8 +11,8 @@ const Header = (props: Props) => {
   return (
     <div
       className={[
-        "fixed flex justify-between py-8 bg-transparent w-full top-0 max-w-7xl transition-all",
-        scrollY > 0 ? "z-50 bg-white py-5" : "",
+        "fixed left-1/2 top-0 z-50 flex w-full -translate-x-1/2 justify-between py-8 px-4 transition-all sm:px-6 lg:max-w-7xl lg:px-8 xl:px-0",
+        scrollY > 0 ? "bg-white py-5" : "bg-transparent",
       ].join(" ")}
     >
       <Image
@@ -21,16 +23,18 @@ const Header = (props: Props) => {
       />
       <div className="flex items-center">
         <ul className="flex items-center">
-          <li className="text-black mr-12 font-mullish text-base">
+          <li className="mr-12 font-mullish text-base text-black">
             Price List
           </li>
-          <li className="text-black mr-12 font-mullish text-base">Insights</li>
-          <li className="text-black mr-12 font-mullish text-base">About Us</li>
-          <li className="text-black font-mullish text-base">Support</li>
+          <li className="mr-12 font-mullish text-base text-black">Insights</li>
+          <li className="mr-12 font-mullish text-base text-black">
+            <Link href="/about">
+              <a>About Us</a>
+            </Link>
+          </li>
+          <li className="font-mullish text-base text-black">Support</li>
         </ul>
-        <button className="ml-16 bg-black text-white font-mullish py-2 px-5 rounded-md text-sm">
-          Get The List
-        </button>
+        <Button className="ml-16 py-2 px-5 text-sm">Get The List</Button>
       </div>
     </div>
   );
