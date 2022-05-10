@@ -1,12 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-type Data = {
-  availableDiamonds: string;
-  suppliers: string;
-  totalValue: string;
-};
-
 const errorData = {
   availableDiamonds: "0",
   suppliers: "0",
@@ -21,8 +15,9 @@ const successData = {
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<string>
 ) {
-  if (req.method !== "GET") return res.status(500).json(errorData);
-  res.status(200).json(successData);
+  res
+    .status(200)
+    .json(JSON.stringify(req.method !== "GET" ? errorData : successData));
 }

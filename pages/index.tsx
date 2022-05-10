@@ -4,8 +4,8 @@ import Container from "@components/Container";
 import Image from "next/image";
 import Head from "next/head";
 import Button from "@components/Button";
-import { BASE_URL } from "config";
 import InfoBox from "@components/InfoBox";
+import { api } from "api";
 
 interface Props {
   availableDiamonds: string;
@@ -311,14 +311,7 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${BASE_URL}/get-diamonds/stats`, {
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    method: "GET",
-  });
-  const stats = await res.json();
+  const stats = await api.GD.getDiamondsStats();
   return {
     props: stats,
   };
