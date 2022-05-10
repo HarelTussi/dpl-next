@@ -103,7 +103,13 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${BASE_URL}/get-diamonds/stats`);
+  const res = await fetch(`${BASE_URL}/get-diamonds/stats`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+  });
   const stats = await res.json();
   return {
     props: stats,
