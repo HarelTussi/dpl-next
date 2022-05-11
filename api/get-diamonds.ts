@@ -1,11 +1,11 @@
-import { NEXT_BASE_URL } from "config";
+// import { NEXT_BASE_URL } from "config";
 import { GetDiamondsStats } from "types/api";
 
 export const getDiamondsStats = async () => {
   return {
-    availableDiamonds: "0",
-    suppliers: "0",
-    totalValue: "0",
+    availableDiamonds: "1.7M",
+    suppliers: "4,800",
+    totalValue: "$6.7B",
   } as GetDiamondsStats;
   // const res = await fetch(`${NEXT_BASE_URL}/get-diamonds/stats`, {
   //   headers: {

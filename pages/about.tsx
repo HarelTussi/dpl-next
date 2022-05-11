@@ -1,6 +1,8 @@
 import Container from "@components/Container";
 import InfoBox from "@components/InfoBox";
-import SectionSeperator from "@components/SectionSeperator";
+import Heading from "@ui/Heading";
+import Paragraph from "@ui/Paragraph";
+import Spacer from "@ui/Spacer";
 import { api } from "api";
 import { GetStaticProps } from "next";
 import Head from "next/head";
@@ -21,14 +23,14 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
       </Head>
       <Container>
         {/* first section */}
-        <div className="hero block pt-28 md:pt-48">
-          <p className="mb-2 text-base font-bold text-primary-100">
+        <Spacer type="Between Header" />
+        <div className="hero block">
+          <Heading type="Subhead 04" className="uppercase">
             Who We Are
-          </p>
-          <h2 className="mb-4 text-3xl font-bold text-primary-100">
-            About DPL
-          </h2>
-          <p className="max-w-[750px] text-base font-normal leading-6 text-primary-100">
+          </Heading>
+          <Heading type="Heading 02">About DPL</Heading>
+          <h2 className="mb-4 text-3xl font-bold text-primary-100"></h2>
+          <Paragraph type="Paragraph 01" className="max-w-[750px]">
             The DPL was designed and built by a separate, dedicated team within
             Lucy Platforms, a leading developer of e-commerce platforms for the
             diamond industry and is accessible to all members of the diamond
@@ -42,30 +44,34 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
             military use as well as for unique technology units.
             <br /> Lucy Platforms is a proud member of the Amazon AWS start-up
             program.
-          </p>
+          </Paragraph>
         </div>
-        <SectionSeperator />
+        <Spacer type="Between Sections" />
         {/* stats */}
         <div className="stats block lg:flex lg:items-center lg:justify-between lg:px-14">
           <div className="mb-10 lg:mb-0">
-            <h1 className="text-6xl font-bold md:text-8xl">
-              {availableDiamonds}
-            </h1>
-            <h4 className="mt-2 text-xl font-normal">Available Diamonds</h4>
+            <Heading type="Display 01">{availableDiamonds}</Heading>
+            <Heading type="Subhead 01" className="font-normal">
+              Available Diamonds
+            </Heading>
           </div>
           <div className="mb-10 lg:mb-0">
-            <h1 className="text-6xl font-bold md:text-8xl">{suppliers}</h1>
-            <h4 className="mt-2 text-xl font-normal">Registered Suppliers</h4>
+            <Heading type="Display 01">{suppliers}</Heading>
+            <Heading type="Subhead 01" className="font-normal">
+              Supplier
+            </Heading>
           </div>
           <div className="mb-10 lg:mb-0">
-            <h1 className="text-6xl font-bold md:text-8xl">{totalValue}</h1>
-            <h4 className="mt-2 text-xl font-normal">Total Value</h4>
+            <Heading type="Display 01">{totalValue}</Heading>
+            <Heading type="Subhead 01" className="font-normal">
+              Total Value
+            </Heading>
           </div>
         </div>
-        <SectionSeperator />
+        <Spacer type="Between Sections" />
         <div
-          className="boxes grid max-w-lg grid-rows-[repeat(3,300px)] gap-y-4
-                  lg:max-w-none lg:grid-cols-3 lg:grid-rows-[repeat(1,320px)] lg:gap-x-6 lg:px-16
+          className="boxes grid max-w-lg gap-y-4
+                  lg:max-w-none lg:grid-cols-3  lg:gap-x-6 lg:px-16
                   xl:px-20"
         >
           {[
@@ -96,7 +102,7 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
             );
           })}
         </div>
-        <SectionSeperator />
+        <Spacer type="Between Sections" />
       </Container>
     </div>
   );

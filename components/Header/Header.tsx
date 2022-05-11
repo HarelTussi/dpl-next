@@ -3,9 +3,7 @@ import { useScrollContext } from "contexts/ScrollContext";
 import Image from "next/image";
 import Link from "next/link";
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   const { scrollY } = useScrollContext();
 
   return (
