@@ -1,5 +1,5 @@
-export const clsx = (...args: string[]) => {
-  return args.join(" ");
+export const clsx = (...args: (string | undefined)[]) => {
+  return args.filter((item) => !!item).join(" ");
 };
 
 /**

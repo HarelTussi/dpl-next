@@ -1,8 +1,9 @@
 import Container from "@components/Container";
 import InfoBox from "@components/InfoBox";
 import Heading from "@ui/Heading";
+import Page from "@ui/Page";
 import Paragraph from "@ui/Paragraph";
-import Spacer from "@ui/Spacer";
+import Section from "@ui/Section";
 import { api } from "api";
 import { GetStaticProps } from "next";
 import Head from "next/head";
@@ -17,14 +18,13 @@ interface Props {
 
 const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
   return (
-    <div className="h-full">
+    <Page>
       <Head>
         <title>About Us</title>
       </Head>
       <Container>
         {/* first section */}
-        <Spacer type="Between Header" />
-        <div className="hero block">
+        <Section className="hero block">
           <Heading type="Subhead 04" className="uppercase">
             Who We Are
           </Heading>
@@ -45,10 +45,9 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
             <br /> Lucy Platforms is a proud member of the Amazon AWS start-up
             program.
           </Paragraph>
-        </div>
-        <Spacer type="Between Sections" />
+        </Section>
         {/* stats */}
-        <div className="stats block lg:flex lg:items-center lg:justify-between lg:px-14">
+        <Section className="stats block lg:flex lg:items-center lg:justify-between lg:px-14">
           <div className="mb-10 lg:mb-0">
             <Heading type="Display 01">{availableDiamonds}</Heading>
             <Heading type="Subhead 01" className="font-normal">
@@ -67,9 +66,8 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
               Total Value
             </Heading>
           </div>
-        </div>
-        <Spacer type="Between Sections" />
-        <div
+        </Section>
+        <Section
           className="boxes grid max-w-lg gap-y-4
                   lg:max-w-none lg:grid-cols-3  lg:gap-x-6 lg:px-16
                   xl:px-20"
@@ -101,10 +99,9 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
               />
             );
           })}
-        </div>
-        <Spacer type="Between Sections" />
+        </Section>
       </Container>
-    </div>
+    </Page>
   );
 };
 

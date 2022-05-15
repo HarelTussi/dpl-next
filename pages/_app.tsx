@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { ScrollContextProvider } from "contexts/ScrollContext";
 import Footer from "@components/Footer";
 import { ClickToComponent } from "click-to-react-component";
-import Header from "@components/Header";
+import Header from "@ui/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
