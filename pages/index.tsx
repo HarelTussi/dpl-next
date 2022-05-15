@@ -1,5 +1,4 @@
 import type { GetStaticProps } from "next";
-import Header from "@components/Header";
 import Container from "@components/Container";
 import Image from "next/image";
 import Head from "next/head";
@@ -52,7 +51,7 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
           <p className="mb-4 font-mullish text-base font-bold">
             Diamond Price List - DPL™
           </p>
-          <h1 className="font-mullish text-5xl font-bold leading-17 text-black">
+          <h1 className="leading-17 font-mullish text-5xl font-bold text-black">
             The world’s most accurate, <br />
             transparent and objective,
             <br /> polished Diamond Price List
@@ -123,7 +122,7 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
       {/* Never seen */}
       <div className="flex items-center pb-48">
         <div className="block">
-          <h1 className="font-mullish text-5xl font-bold leading-17 text-black">
+          <h1 className="leading-17 font-mullish text-5xl font-bold text-black">
             Never Seen <br /> Before Interactive
             <br /> Price List
           </h1>
