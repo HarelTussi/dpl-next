@@ -1,4 +1,4 @@
-import Container from "@components/Container";
+import Container from "@ui/Container";
 import List from "@components/List/List";
 import { roundJson, fancyJson } from "@components/List/ListConstants";
 import WhatIsMethodology from "@components/WhatIsMethodology";

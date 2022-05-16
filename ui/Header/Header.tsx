@@ -1,4 +1,4 @@
-import Container from "@components/Container";
+import Container from "@ui/Container";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
-import Container from "@components/Container";
+import Container from "@ui/Container";
 
 type Props = {};
 

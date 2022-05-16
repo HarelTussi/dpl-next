@@ -91,7 +91,7 @@ const ContactUs = () => {
                       field?.isTextArea ? "w-full h-40" : "w-full"
                     }
                     labelClassName="mb-2"
-                    type={field?.isTextArea ? "Text Area" : "Text"}
+                    kind={field?.isTextArea ? "Text Area" : "Text"}
                   />
                 );
               })}

@@ -5,7 +5,7 @@ import React from "react";
 import { TYPES } from "./TextFieldConstants";
 
 type Props = {
-  type?: keyof typeof TYPES;
+  kind?: keyof typeof TYPES;
   name: string;
   label?: string;
   fieldClassName?: string;
@@ -17,7 +17,7 @@ type Props = {
 };
 
 const TextField = ({
-  type = "Text",
+  kind = "Text",
   name = "",
   label = "",
   fieldClassName = "",
@@ -54,10 +54,10 @@ const TextField = ({
           {label}
         </FieldLabel>
       )}
-      {type === "Text" && (
+      {kind === "Text" && (
         <input value={value} className={inputClassNames} {...rest} />
       )}
-      {type === "Text Area" && (
+      {kind === "Text Area" && (
         <textarea
           value={value}
           className={textareClassNames}

@@ -1,4 +1,4 @@
-import Container from "@components/Container";
+import Container from "@ui/Container";
 import InfoBox from "@components/InfoBox";
 import Heading from "@ui/Heading";
 import Page from "@ui/Page";
