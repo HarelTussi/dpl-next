@@ -27,7 +27,7 @@ const TextField = ({
   error = "",
   touched = false,
   ...rest
-}: Props & React.HTMLAttributes<HTMLInputElement>) => {
+}: Props & React.InputHTMLAttributes<HTMLInputElement>) => {
   const showError = !!touched && !!error;
   const fieldClassNames = clsx("block relative", fieldClassName);
   const labelClassNames = clsx("block", labelClassName);

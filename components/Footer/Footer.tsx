@@ -3,9 +3,7 @@ import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import Container from "@ui/Container";
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   const sections = [
     {
       title: "PRODUCT",
