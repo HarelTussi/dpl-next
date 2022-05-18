@@ -72,6 +72,7 @@ module.exports = {
         white: "#ffffff",
         black: "#0A0A0A",
         gray: "#E0E0E0",
+        GET: "#FA922A",
       },
       fontFamily: {
         mullish: ["Mulish", "sans-serif"],

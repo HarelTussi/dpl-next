@@ -20,7 +20,7 @@
   --clr-success-100: #e9faf0;
   --clr-error-50: #ff0202;
   --clr-error-100: #fff1f1;
-  --headerHeight: 70px;
+  --headerHeight: 64px;
 }
 
 html,
@@ -42,4 +42,10 @@ h4,
 h5,
 p {
   color: var(--clr-primary-100);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --headerHeight: 78px;
+  }
 }

@@ -1,119 +1,199 @@
+import Button from "@ui/Button";
 import Container from "@ui/Container";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
+import DPLMobileLogo from "../../assets/dpl-mobile-logo.svg";
+import DPLDesktopLogo from "../../assets/dpl-desktop-logo.svg";
+import Menu from "../../assets/menu.svg";
+import ChevronDown from "../../assets/chevron-down.svg";
+import X from "../../assets/x.svg";
+import { clsx } from "@utils/index";
+import { boolean } from "yup";
+
+const HeaderContext = React.createContext<{
+  isDrawerOpen: boolean;
+  isDropdownOpen: boolean;
+  openDrawer: () => void;
+  closeDrawer: () => void;
+  openDropdown: () => void;
+  closeDropdown: () => void;
+}>({
+  isDrawerOpen: false,
+  isDropdownOpen: false,
+  openDrawer: () => {},
+  closeDrawer: () => {},
+  openDropdown: () => {},
+  closeDropdown: () => {},
+});
 
 const Header = () => {
-  const linkClassName = "text-sm font-normal text-primary-100";
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const openDrawer = () => setIsDrawerOpen(true);
+  const closeDrawer = () => setIsDrawerOpen(false);
+  const openDropdown = () => {
+    window && window.innerWidth < 1024 && setIsDropdownOpen(true);
+  };
+  const closeDropdown = () => {
+    window && window.innerWidth < 1024 && setIsDropdownOpen(false);
+  };
   return (
-    <div className="fixed top-0 left-0 z-50 w-full bg-white shadow-md">
-      <Container>
-        <div className="flex h-header items-center justify-between">
-          <div className="relative hidden">
-            <Image
-              alt="DPL logo"
-              src="/assets/images/logo.png"
-              width={324}
-              height={161}
-              layout="fill"
-            />
-          </div>
+    <HeaderContext.Provider
+      value={{
+        isDrawerOpen,
+        isDropdownOpen,
+        openDrawer,
+        closeDrawer,
+        openDropdown,
+        closeDropdown,
+      }}
+    >
+      <div className="fixed top-0 left-0 z-[100] w-full bg-white shadow-lg lg:shadow-none">
+        <Container withLines={false}>
           <div
-            className="relative flex h-7 w-20 items-center
-            justify-center"
+            className={clsx(
+              `overflow-hidden transition-all 
+              lg:flex lg:justify-between lg:overflow-visible`,
+              isDrawerOpen
+                ? isDropdownOpen
+                  ? "h-[612px]"
+                  : "h-[512px]"
+                : "h-[70px] lg:h-[80px]"
+            )}
           >
-            <Image
-              alt="DPL logo"
-              src="/assets/images/mini-logo.svg"
-              width={79}
-              height={28}
-              layout="fill"
-            />
+            <HeaderLeft />
+            <HeaderLinks />
+            <HeaderGetList />
           </div>
-          <button className="" onClick={() => setIsDrawerOpen((prev) => !prev)}>
-            {isDrawerOpen ? <Close /> : <Hamburger />}
-          </button>
-          <div
-            className={`
-            absolute
-            left-0 top-0 z-10 block h-[100%] w-full bg-white transition-all
-              ${isDrawerOpen ? "-translate-y-full" : ""}`}
+        </Container>
+      </div>
+    </HeaderContext.Provider>
+  );
+};
+
+const HeaderLinks = () => {
+  const { isDropdownOpen, openDropdown, closeDropdown } =
+    React.useContext(HeaderContext);
+  return (
+    <div
+      className={clsx(
+        `items-center overflow-hidden transition-all duration-300
+  lg:flex lg:h-auto lg:overflow-visible
+  `
+      )}
+    >
+      <div
+        className="group relative border-b border-b-primary-40 
+py-6 lg:relative lg:border-none lg:p-0"
+      >
+        <div
+          className="flex items-center justify-between lg:mr-8 lg:cursor-pointer lg:justify-start"
+          onClick={isDropdownOpen ? closeDropdown : openDropdown}
+        >
+          <p className="text-[21px] font-bold text-primary-100 lg:text-[15px]">
+            Price List
+          </p>
+          <ChevronDown className="lg:hidden" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="hidden lg:ml-[3px] lg:block"
           >
-            <div className="group relative">
-              <p className={linkClassName}>Price List</p>
-              <div className="absolute left-0 opacity-0 group-hover:opacity-100 ">
-                <Link href="/calculator">
-                  <a className={linkClassName}>DPL Calculator</a>
-                </Link>
-                <Link href="/methodlogy">
-                  <a className={linkClassName}>Methodlogy</a>
-                </Link>
-              </div>
-            </div>
-            <Link href="/insights">
-              <a className={linkClassName}>Insights</a>
-            </Link>
-            <Link href="/about">
-              <a className={linkClassName}>About Us</a>
-            </Link>
-            <Link href="/support">
-              <a className={linkClassName}>Support</a>
-            </Link>
-          </div>
-          {/* <Link href="/login">
-            <a
-              className="flex h-10 w-32 items-center justify-center 
-                      rounded-md bg-primary-100 text-white"
-            >
-              Get The List
-            </a>
-          </Link> */}
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
         </div>
-      </Container>
+        <div
+          className={clsx(
+            "overflow-hidden pl-4 transition-all duration-300 lg:absolute lg:left-0 lg:whitespace-nowrap lg:bg-white lg:p-0 lg:group-hover:h-[111px]",
+            isDropdownOpen ? "h-[111px]" : "h-0"
+          )}
+        >
+          <Link href="/calculator">
+            <a
+              className="block pt-6 text-[21px] font-normal text-primary-100
+      lg:mt-4 lg:p-0 lg:text-[15px]
+      "
+            >
+              DPL Calculator
+            </a>
+          </Link>
+          <Link href="/methodology">
+            <a
+              className="block pt-6 text-[21px] font-normal text-primary-100
+      lg:mt-4 lg:p-0 lg:text-[15px]
+      "
+            >
+              Methodology
+            </a>
+          </Link>
+        </div>
+      </div>
+      <div className="lg:flex lg:whitespace-nowrap">
+        {[
+          { href: "/insights", label: "Insights" },
+          { href: "/about", label: "About us" },
+          { href: "/support", label: "Support" },
+        ].map(({ href, label }, index) => {
+          return (
+            <Link href={href} key={index}>
+              <a
+                className={clsx(
+                  `block border-b border-b-primary-40 py-6 text-[21px] font-bold text-primary-100
+          lg:border-none lg:p-0 lg:text-[15px] 
+        `,
+                  index !== 2 ? "lg:mr-8" : ""
+                )}
+              >
+                {label}
+              </a>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-const Hamburger = () => {
+const HeaderLeft = ({}) => {
+  const { isDrawerOpen, openDrawer, closeDrawer } =
+    React.useContext(HeaderContext);
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="feather feather-menu"
+    <div
+      className={clsx(
+        "flex h-[70px] w-full items-center justify-between lg:h-[80px] lg:flex-1"
+      )}
     >
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
+      <Link href="/">
+        <a className="flex items-center">
+          <DPLMobileLogo className="lg:hidden" />
+          <DPLDesktopLogo className="hidden lg:block" />
+        </a>
+      </Link>
+      <button
+        onClick={isDrawerOpen ? closeDrawer : openDrawer}
+        className="flex items-center lg:hidden"
+      >
+        {isDrawerOpen ? <X /> : <Menu />}
+      </button>
+    </div>
   );
 };
 
-const Close = () => {
+const HeaderGetList = () => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="feather feather-x"
-    >
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
+    <div className="lg:flex lg:flex-1 lg:items-center lg:justify-end">
+      <Button className="my-8 h-[56px] w-full lg:m-0 lg:h-10 lg:w-[128px]">
+        Get The List
+      </Button>
+    </div>
   );
 };
 

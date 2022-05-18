@@ -1,4 +1,5 @@
 export const clsx = (...args: (string | undefined)[]) => {
+  if (args.length === 0) return "";
   return args.filter((item) => !!item).join(" ");
 };
 
