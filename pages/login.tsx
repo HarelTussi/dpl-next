@@ -20,21 +20,20 @@ const Login = (props: Props) => {
         <title>Login to DPL</title>
       </Head>
       <Container
-        className="min-h-screen pb-[80px] 
+        className="min-h-screen pb-[80px]  
         lg:relative lg:flex lg:min-h-0 lg:items-center lg:justify-center
         xl:min-h-screen
         "
       >
         <div
-          className="w-full border border-primary-30 p-5 
+          className="w-full border border-primary-30 bg-white  p-5
           lg:flex lg:p-10 xl:-mt-[60px]"
         >
           <GetLogin />
           <div className="flex items-center">
             <div
-              className="mt-10 mb-[30px] h-[0.5px] w-full bg-primary-40
-            lg:my-0 lg:mx-20 lg:h-[390px] lg:w-[0.5px]
-            "
+              className="lg:ml-22 mt-10 mb-[30px] h-[0.5px] w-full
+            bg-primary-40 lg:my-0 lg:ml-[88px] lg:mr-20 lg:h-[390px] lg:w-[0.5px]"
             ></div>
           </div>
           <EmailLogin />

@@ -1,6 +1,5 @@
 import Button from "@ui/Button";
 import Container from "@ui/Container";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import DPLMobileLogo from "../../assets/dpl-mobile-logo.svg";
@@ -9,7 +8,6 @@ import Menu from "../../assets/menu.svg";
 import ChevronDown from "../../assets/chevron-down.svg";
 import X from "../../assets/x.svg";
 import { clsx } from "@utils/index";
-import { boolean } from "yup";
 
 const HeaderContext = React.createContext<{
   isDrawerOpen: boolean;

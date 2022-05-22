@@ -1,20 +1,23 @@
 import { Dialog, Transition } from "@headlessui/react";
+import { clsx } from "@utils/index";
 import { Fragment, useState } from "react";
 
 interface Props {
   children: React.ReactNode;
   link: string;
+  className?: string;
 }
 
-function YoutubeVideo({ children, link }: Props) {
+function YoutubeVideo({ children, link, className = "" }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
 
   return (
     <>
-      <div onClick={openModal}>{children}</div>
-
+      <div onClick={openModal} className={clsx(className)}>
+        {children}
+      </div>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-[100]" onClose={closeModal}>
           <Transition.Child

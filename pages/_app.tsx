@@ -1,20 +1,19 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { ScrollContextProvider } from "contexts/ScrollContext";
 import Footer from "@components/Footer";
 import { ClickToComponent } from "click-to-react-component";
 import Header from "@ui/Header";
+import ScrollObserver from "@components/ScrollObserver";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ScrollContextProvider>
+    <>
+      <ScrollObserver />
       <ClickToComponent />
-      <div>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </div>
-    </ScrollContextProvider>
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
+    </>
   );
 }
 

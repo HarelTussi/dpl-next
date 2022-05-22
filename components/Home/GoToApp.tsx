@@ -15,54 +15,64 @@ const steps = [
 
 const GoToApp = () => {
   return (
-    <Section>
-      <Heading type="Heading 01">Go Straight To App</Heading>
-      <Heading type="Subhead 03" className="mt-4">
-        The most advanced, easy to use, diamond-price calculator:
-      </Heading>
-      <div className="mt-4 pl-3">
-        {steps.map(({ step }, index) => {
-          return (
-            <div
-              key={index}
-              className={[
-                "relative flex  pl-4",
-                index !== steps.length - 1
-                  ? "h-[80px] border-l border-l-primary-30"
-                  : "",
-              ].join(" ")}
-            >
-              <span className="absolute -left-[10px] top-[2px] h-[20px] w-[20px] rounded-full bg-black"></span>
-              <Paragraph className="-mt-[8 px] relative -top-[1px] max-w-[290px]">
-                {step}
-              </Paragraph>
-            </div>
-          );
-        })}
+    <Section className="lg:flex lg:justify-between lg:px-40">
+      <div>
+        <Heading type="Heading 01">Go Straight To App</Heading>
+        <Heading type="Subhead 03" className="mt-4">
+          The most advanced, easy to use, diamond-price calculator:
+        </Heading>
+        <div className="mt-4 pl-3">
+          {steps.map(({ step }, index) => {
+            return (
+              <div
+                key={index}
+                className={[
+                  "relative flex  pl-4",
+                  index !== steps.length - 1
+                    ? "h-[80px] border-l border-l-primary-30"
+                    : "",
+                ].join(" ")}
+              >
+                <span className="absolute -left-[10px] top-[2px] h-[20px] w-[20px] rounded-full bg-black"></span>
+                <Paragraph className="-mt-[8 px] relative -top-[1px] max-w-[290px]">
+                  {step}
+                </Paragraph>
+              </div>
+            );
+          })}
+        </div>
+
+        <Heading type="Subhead 03" className="mt-4 flex items-center">
+          Learn More <ChevronRight />
+        </Heading>
       </div>
-      <Heading type="Subhead 03" className="mt-4 flex items-center">
-        Learn More <ChevronRight />
-      </Heading>
-      <div className="relative mt-10 h-[500px]">
-        <Image src="/assets/images/iphone.svg" layout="fill" alt="DPL App" />
-      </div>
-      <div className="-mt-4 flex items-center justify-between">
-        <a
-          href="https://apps.apple.com/il/app/lucy-calculator/id1522203901"
-          target="_blank"
-          rel="noreferrer"
-          className="flex-1"
+
+      <div>
+        <div className="relative mt-10 h-[500px] md:max-w-[300px] lg:mt-0">
+          <Image src="/assets/images/iphone.svg" layout="fill" alt="DPL App" />
+        </div>
+        <div
+          className="-mt-4 flex items-center justify-between md:max-w-[400px] 
+        lg:max-w-[330px]  
+        "
         >
-          <AppStore />
-        </a>
-        <a
-          href="https://play.google.com/store/apps/details?id=com.DiamondPrice.DiamondPrice"
-          target="_blank"
-          rel="noreferrer"
-          className="flex-1"
-        >
-          <GoogleStore />
-        </a>
+          <a
+            href="https://apps.apple.com/il/app/lucy-calculator/id1522203901"
+            target="_blank"
+            rel="noreferrer"
+            className="flex-1"
+          >
+            <AppStore />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.DiamondPrice.DiamondPrice"
+            target="_blank"
+            rel="noreferrer"
+            className="flex-1"
+          >
+            <GoogleStore />
+          </a>
+        </div>
       </div>
     </Section>
   );

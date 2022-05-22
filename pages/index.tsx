@@ -4,7 +4,6 @@ import Head from "next/head";
 import { api } from "api";
 import Page from "@ui/Page";
 import Hero from "@components/Home/Hero";
-import Stats from "@components/Home/Stats";
 import Benefits from "@components/Home/Benefits";
 import NeverSeenBefore from "@components/Home/NeverSeenBefore";
 import YourDiamonds from "@components/Home/YourDiamonds";
@@ -50,8 +49,7 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
         <title>The Diamond Price List</title>
       </Head>
       <Container>
-        <Hero />
-        <Stats stats={stats} />
+        <Hero stats={stats} />
         <Benefits benefits={benefits} />
         <NeverSeenBefore />
         <YourDiamonds />

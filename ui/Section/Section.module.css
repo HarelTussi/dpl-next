@@ -1,15 +1,15 @@
 .container {
-  margin-bottom: 80px;
+  padding-bottom: 80px;
 }
 
 @media screen and (min-width: 1024px) {
   .container {
-    margin-bottom: 120px;
+    padding-bottom: 120px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
-    margin-bottom: 200px;
+    padding-bottom: 200px;
   }
 }

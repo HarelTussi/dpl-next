@@ -4,9 +4,10 @@ type Props = {
   children?: React.ReactNode;
   withLines?: boolean;
   className?: string;
+  innerClassName?: string;
 };
 
-const Container = ({ children, withLines = true, className = "" }: Props) => {
+const Container = ({ children, className = "" }: Props) => {
   return (
     <div
       className={clsx(
@@ -14,24 +15,7 @@ const Container = ({ children, withLines = true, className = "" }: Props) => {
         className
       )}
     >
-      <div className="relative z-20 w-full">{children}</div>
-      {/* {withLines && (
-        <div className="h-full w-full overflow-hidden">
-          <div className="absolute top-0 left-0 z-0 grid h-full w-full grid-cols-6">
-            {new Array(6).fill(0).map((_, index) => {
-              return (
-                <div
-                  key={index}
-                  className={[
-                    "h-full border-l-0.5 border-l-gray opacity-50",
-                    index === 5 ? "border-r-0.5 border-r-gray" : "",
-                  ].join(" ")}
-                ></div>
-              );
-            })}
-          </div>
-        </div>
-      )} */}
+      {children}
     </div>
   );
 };
