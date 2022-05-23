@@ -1,16 +1,15 @@
 import Button from "@ui/Button";
 import Container from "@ui/Container";
-import FieldLabel from "@ui/FieldLabel";
 import Heading from "@ui/Heading";
 import Page from "@ui/Page";
 import Paragraph from "@ui/Paragraph";
 import TextField from "@ui/TextField";
-import { useFormik } from "formik";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import Check from "../assets/check.svg";
-
+import { useFormik } from "formik";
+import * as yup from "yup";
 type Props = {};
 
 const Login = (props: Props) => {
@@ -82,9 +81,21 @@ const GetLogin = () => {
   );
 };
 
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Please provide a valid email address")
+    .required("Email is required"),
+  password: yup.string().required("Password is required").min(6),
+});
+
 const EmailLogin = () => {
   const formik = useFormik({
-    initialValues: { email: "", password: "" },
+    validationSchema,
+    initialValues: {
+      email: "",
+      password: "",
+    },
     onSubmit: (values) => {},
   });
 
@@ -94,7 +105,6 @@ const EmailLogin = () => {
         Login to DPL™
       </Heading>
       <form onSubmit={formik.handleSubmit} className="grid gap-4">
-        <FieldLabel>EMAIL ADDRESS</FieldLabel>
         <TextField
           name="email"
           id="email"
@@ -102,19 +112,23 @@ const EmailLogin = () => {
           onBlur={formik.handleBlur}
           value={formik.values.email}
           type="email"
-          inputClassName="w-full"
+          className="w-full lg:max-w-[350px]"
           placeholder="email@email.com"
+          label="EMAIL ADDRESS"
+          touched={formik.touched.email}
+          error={formik.errors.email ?? ""}
         />
-        <FieldLabel>PASSWORD</FieldLabel>
         <TextField
+          label="PASSWORD"
           name="password"
           id="password"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
-          type="password"
-          inputClassName="w-full"
+          className="w-full lg:max-w-[350px]"
           placeholder="******"
+          touched={formik.touched.password}
+          error={formik.errors.password ?? ""}
         />
         <Button className="h-[52px] w-full lg:max-w-[200px]">Send</Button>
       </form>

@@ -1,5 +1,6 @@
 import FieldError from "@ui/FieldError";
 import FieldLabel from "@ui/FieldLabel";
+import Paragraph from "@ui/Paragraph";
 import { clsx } from "@utils/index";
 import React from "react";
 
@@ -8,24 +9,15 @@ type Props = {
   className?: string;
   error?: string;
   touched?: boolean;
-  label?: string;
-  labelClassName?: string;
+  fieldLabelProps?: React.ComponentProps<typeof FieldLabel>;
 };
 
-const TextField = React.forwardRef<
-  HTMLInputElement | null,
-  Props & React.InputHTMLAttributes<HTMLInputElement>
+const TextareaField = React.forwardRef<
+  HTMLTextAreaElement | null,
+  Props & React.InputHTMLAttributes<HTMLTextAreaElement>
 >(
   (
-    {
-      touched,
-      error,
-      containerClassName,
-      className,
-      label,
-      labelClassName,
-      ...rest
-    },
+    { touched, error, containerClassName, className, fieldLabelProps, ...rest },
     ref
   ) => {
     const showError = !!touched && !!error;
@@ -33,25 +25,23 @@ const TextField = React.forwardRef<
     const classNames = clsx(
       `block h-12 bg-primary-30 pl-4
     text-base leading-5
-    placeholder:text-primary-90 placeholder:opacity-40 rounded-md`,
+    placeholder:text-primary-90 placeholder:opacity-40 rounded-md pt-4`,
       containerClassName,
       className,
-      showError ? "border border-error-50 placeholder" : ""
+      showError ? "border border-error-50" : ""
     );
     return (
       <div className={containerClassNames}>
-        {!!label && (
-          <FieldLabel htmlFor={rest.name} className={labelClassName}>
-            {label}
-          </FieldLabel>
+        {!!fieldLabelProps && (
+          <FieldLabel htmlFor={rest.name} {...fieldLabelProps} />
         )}
-        <input className={classNames} ref={ref} {...rest} />
+        <textarea className={classNames} ref={ref} {...rest} />
         {showError && <FieldError error={error} />}
       </div>
     );
   }
 );
 
-TextField.displayName = "TextField";
+TextareaField.displayName = "TextareaField";
 
-export default TextField;
+export default TextareaField;

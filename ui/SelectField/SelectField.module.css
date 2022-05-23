@@ -1,0 +1,23 @@
+.container :global(.ui-select__control) {
+  height: 48px;
+  border: none;
+  background-color: var(--clr-primary-30);
+  box-shadow: none;
+}
+
+.container :global(.ui-select__indicator) {
+  color: var(--clr-primary-100);
+}
+
+.container :global(.ui-select__indicator-separator) {
+  color: var(--clr-primary-100);
+}
+
+.container :global(.ui-select--error .ui-select__control) {
+  border: 1px solid var(--clr-error-50);
+}
+
+.container :global(.ui-select__placeholder) {
+  color: var(--clr-primary-90);
+  opacity: 0.4;
+}

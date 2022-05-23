@@ -1,0 +1,40 @@
+export const businessTypes = [
+  { value: "Independent Jeweler", label: "Independent Jeweler" },
+  { value: "Online Jewelry Store", label: "Online Jewelry Store" },
+  { value: "Diamond Dealer/ Broker", label: "Diamond Dealer/ Broker" },
+  {
+    value: "Diamond Manufacturer / Cutter",
+    label: "Diamond Manufacturer / Cutter",
+  },
+  { value: "Jewelry Manufacturer", label: "Jewelry Manufacturer" },
+  { value: "Jewelry Retail Chain", label: "Jewelry Retail Chain" },
+  { value: "Pawn shop", label: "Pawn shop" },
+  { value: "Appraiser", label: "Appraiser" },
+  { value: "Designer", label: "Designer" },
+  {
+    value: "Not in the Diamond / Jewelry Trade",
+    label: "Not in the Diamond / Jewelry Trade",
+  },
+  { value: "Gold Buyer", label: "Gold Buyer" },
+  { value: "Diamond Mining", label: "Diamond Mining" },
+  { value: "Auctioneer", label: "Auctioneer" },
+  { value: "Trade Association", label: "Trade Association" },
+  { value: "Watch Dealer", label: "Watch Dealer" },
+  { value: "Finance / Banking", label: "Finance / Banking" },
+  { value: "Investor", label: "Investor" },
+  { value: "Jewelry Appraiser", label: "Jewelry Appraiser" },
+  { value: "Jewelry Retailer", label: "Jewelry Retailer" },
+  {
+    value: "Diamond and Pearl Dealer / Broker",
+    label: "Diamond and Pearl Dealer / Broker",
+  },
+  {
+    value: "Colored Stone Dealer / Broker",
+    label: "Colored Stone Dealer / Broker",
+  },
+  {
+    value: "Estate Jewelry Dealer / Broker",
+    label: "Estate Jewelry Dealer / Broker",
+  },
+  { value: "Other", label: "Other" },
+];

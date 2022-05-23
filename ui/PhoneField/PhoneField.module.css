@@ -1,0 +1,65 @@
+.container :global(.special-label) {
+  display: none;
+}
+
+.container :global(.react-tel-input .flag-dropdown) {
+  all: unset;
+
+  height: 48px;
+}
+
+.container :global(.react-tel-input .selected-flag) {
+  width: 40px;
+  min-width: 40px;
+  background-color: var(--clr-primary-40) !important;
+  padding: 0 0 0 12px;
+}
+
+.container :global(.react-tel-input) {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  background-color: var(--clr-primary-30);
+  border-radius: 0.375rem;
+}
+
+.container :global(.react-tel-input .form-control) {
+  all: unset;
+  display: block;
+  height: 48px;
+  flex: 1;
+  padding-left: 10px;
+}
+
+.container :global(.react-tel-input .country-list) {
+  position: absolute;
+  left: 0;
+  top: 48px;
+  width: 100%;
+  border-radius: 0.375rem;
+}
+
+.container :global(.react-tel-input .selected-flag .arrow) {
+  display: none;
+}
+
+.container :global(.react-tel-input .country-list .country) {
+  padding: 10px;
+}
+
+.container :global(.react-tel-input .country-list .search-emoji) {
+  display: none;
+}
+
+.container :global(.react-tel-input .country-list .search-box) {
+  margin: 0;
+  height: 40px;
+  width: calc(100% - 20px);
+}
+
+.container :global(.react-tel-input .country-list .search) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}

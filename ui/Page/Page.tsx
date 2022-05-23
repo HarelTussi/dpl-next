@@ -6,7 +6,7 @@ type Props = {
 
 const Page = ({ children, withGridLines = true }: Props) => {
   return (
-    <div className={"relative min-h-full pt-[120px]"}>
+    <div className={"relative min-h-full pt-[120px] pb-[80px]"}>
       <div className="relative z-30">{children}</div>
       {withGridLines && (
         <div className="absolute top-0 left-0 z-0 h-full w-full">

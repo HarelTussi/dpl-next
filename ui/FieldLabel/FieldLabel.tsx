@@ -11,7 +11,7 @@ const FieldLabel = ({
   ...rest
 }: Props & React.LabelHTMLAttributes<HTMLLabelElement>) => {
   const classNames = clsx(
-    "text-sm font-bold leading-[18px] text-primary-100 uppercase",
+    "text-sm font-bold leading-[18px] text-primary-100 uppercase block mb-1",
     className
   );
   return (

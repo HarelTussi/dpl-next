@@ -1,4 +1,4 @@
-export const NEXT_BASE_URL =
+export const API_URL =
   process.env.NODE_ENV === "production"
     ? "https://dpl-next.vercel.app/api"
-    : "http://localhost:3000/api";
+    : "https://server.thediamondpricelist.com/get-list";

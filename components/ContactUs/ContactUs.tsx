@@ -2,9 +2,10 @@ import Button from "@ui/Button";
 import Heading from "@ui/Heading";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
+import TextareaField from "@ui/TextareaField";
 import TextField from "@ui/TextField";
-import { useFormik } from "formik";
 import React from "react";
+import { useFormik } from "formik";
 import * as yup from "yup";
 
 const fields = [
@@ -42,13 +43,13 @@ const fields = [
 
 const validationSchema = yup.object().shape({
   fullName: yup.string().required("Full name is required"),
-  email: yup.string().required("Email is required").email("Email is not valid"),
-  phoneNumber: yup.string().required("Phone is required"),
-  companyName: yup.string().required("Company name is required"),
-  message: yup
+  email: yup
     .string()
-    .required("Company name is required")
-    .max(180, "Max characters exceeded"),
+    .email("Please provide a valid email address")
+    .required("Email is required"),
+  message: yup.string().required("Contact message is required"),
+  companyName: yup.string().required("Company name is required"),
+  phoneNumber: yup.string().required("Phone number is required"),
 });
 
 const ContactUs = () => {
@@ -61,8 +62,9 @@ const ContactUs = () => {
       companyName: "",
       message: "",
     },
-    onSubmit: () => {},
+    onSubmit: (data) => {},
   });
+
   return (
     <>
       <Heading type="Subhead 03" className="uppercase">
@@ -74,30 +76,32 @@ const ContactUs = () => {
           <form className="mt-8" onSubmit={formik.handleSubmit}>
             <div className="grid gap-y-4 md:grid-cols-2 md:gap-x-5">
               {fields.map((field) => {
+                const Comp = field.isTextArea ? TextareaField : TextField;
                 return (
-                  <TextField
+                  <Comp
                     key={field.name}
                     name={field.name}
                     id={field.name}
+                    value={formik.values[field.name]}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values[field.name] ?? ""}
-                    error={formik.errors[field.name]}
-                    touched={formik.touched[field.name]}
-                    label={field.label}
                     placeholder={field.placeholder}
-                    fieldClassName={field?.isTextArea ? "md:col-span-2" : ""}
-                    inputClassName={
-                      field?.isTextArea ? "w-full h-40" : "w-full"
+                    containerClassName={
+                      field?.isTextArea ? "md:col-span-2" : ""
                     }
-                    labelClassName="mb-2"
-                    kind={field?.isTextArea ? "Text Area" : "Text"}
+                    className={field?.isTextArea ? "!h-40 w-full" : "w-full"}
+                    fieldLabelProps={{
+                      children: field.label,
+                      className: "block mb-2",
+                    }}
+                    touched={formik.touched[field.name]}
+                    error={formik.errors[field.name]}
                   />
                 );
               })}
             </div>
             <Paragraph className="my-3 text-right">
-              <b>{180 - formik.values.message.length}</b> characters left
+              <b>{180 - formik.values.message.length}</b> characters left:
             </Paragraph>
             <Button type="submit" className="h-[56px] w-full">
               Send
