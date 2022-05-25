@@ -3,9 +3,7 @@ import Page from "@ui/Page";
 import Head from "next/head";
 import React from "react";
 
-type Props = {};
-
-const ResetPassword = (props: Props) => {
+const ResetPassword = () => {
   return (
     <Page>
       <Head>

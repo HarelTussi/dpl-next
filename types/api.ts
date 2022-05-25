@@ -3,3 +3,7 @@ export interface GetDiamondsStats {
   suppliers: string;
   totalValue: string;
 }
+
+export interface IApiError {
+  message: string;
+}

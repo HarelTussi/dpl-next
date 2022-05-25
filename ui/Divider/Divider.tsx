@@ -17,7 +17,12 @@ const Divider = ({
         {...rest}
       />
     );
-  return <div className={clsx("", className)} {...rest} />;
+  return (
+    <div
+      className={clsx("h-full w-[0.5px] bg-primary-40", className)}
+      {...rest}
+    />
+  );
 };
 
 export default Divider;

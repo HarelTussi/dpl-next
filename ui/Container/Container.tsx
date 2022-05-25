@@ -11,7 +11,7 @@ const Container = ({ children, className = "" }: Props) => {
   return (
     <div
       className={clsx(
-        "relative mx-auto px-4 md:px-8 lg:px-10 xl:px-14 2xl:max-w-7xl 2xl:px-0",
+        "relative mx-auto w-full px-4 md:px-8 lg:px-10 xl:px-14 2xl:max-w-7xl 2xl:px-0",
         className
       )}
     >

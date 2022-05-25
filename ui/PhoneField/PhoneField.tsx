@@ -20,7 +20,13 @@ const PhoneField = ({
 }: Props & PhoneInputProps) => {
   const showError = !!touched && !!error;
   return (
-    <div className={clsx(styles.container, containerClassName)}>
+    <div
+      className={clsx(
+        styles.container,
+        showError ? styles.containerError : "",
+        containerClassName
+      )}
+    >
       {!!label && <FieldLabel>{label}</FieldLabel>}
       <PhoneInput
         enableSearch

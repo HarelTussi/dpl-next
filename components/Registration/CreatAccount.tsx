@@ -1,4 +1,3 @@
-import Button from "@ui/Button";
 import SelectField from "@ui/SelectField";
 import Heading from "@ui/Heading";
 import TextField from "@ui/TextField";
@@ -8,51 +7,9 @@ import * as yup from "yup";
 import { countries } from "constants/countries";
 import { useFormik } from "formik";
 import PhoneField from "@ui/PhoneField";
-type Props = {};
-
-const fields = [
-  {
-    type: "text",
-    label: "full name*",
-    name: "fullName",
-    placeholder: "Ex. John Deo",
-    inputType: "text",
-  },
-  {
-    type: "country",
-    label: "country*",
-    name: "country",
-    placeholder: "Choose from list",
-    options: countries,
-  },
-  {
-    type: "text",
-    label: "email address*",
-    name: "email",
-    placeholder: "Example@gmail.com",
-    inputType: "email",
-  },
-  {
-    type: "phone",
-    label: "telephone number*",
-    name: "phoneNumber",
-    placeholder: "Ex: +9725528866442",
-  },
-  {
-    type: "text",
-    label: "password*",
-    name: "password",
-    placeholder: "Min. 6 characters",
-    inputType: "password",
-  },
-  {
-    type: "text",
-    label: "confirm password*",
-    name: "passwordConfirmation",
-    placeholder: "******",
-    inputType: "password",
-  },
-] as const;
+import { useCheckEmail } from "features/users/mutations";
+import { asyncCatch } from "@utils/index";
+import StepActions from "./StepActions";
 
 const validationSchema = yup.object().shape({
   fullName: yup.string().required("Full name is required"),
@@ -69,90 +26,115 @@ const validationSchema = yup.object().shape({
     .required("Email is required"),
 });
 
-const CreateAccount = (props: Props) => {
+const CreateAccount = () => {
+  const { mutateAsync: checkEmail } = useCheckEmail();
   const initialValues = useRegistrationStore((state) => state.accountDetails);
   const stepForward = useRegistrationStore((state) => state.stepForward);
+  const setAccountDetails = useRegistrationStore(
+    (state) => state.setAccountDetails
+  );
   const formik = useFormik({
     validationSchema,
-    initialValues: initialValues,
-    onSubmit: (values) => {
+    initialValues,
+    onSubmit: async (values, helpers) => {
+      // validate email
+      const [err] = await asyncCatch(checkEmail(values.email));
+      if (err) return helpers.setFieldError("email", "Email is already taken");
+      setAccountDetails(values);
       stepForward();
     },
   });
 
   return (
     <div>
-      <Heading type="Heading 02">Create Account</Heading>
       <form className="mt-6 grid gap-y-4" onSubmit={formik.handleSubmit}>
-        {fields.map((field) => {
-          if (field.type === "country") {
-            return (
-              <SelectField
-                isClearable
-                label={field.label}
-                key={field.name}
-                options={field.options}
-                name={field.name}
-                inputId={field.name}
-                onBlur={() => {
-                  formik.setFieldTouched(field.name, true);
-                }}
-                value={
-                  (field.options
-                    ? field.options.find(
-                        (option) => option.value === formik.values[field.name]
-                      )
-                    : "") as any
-                }
-                onChange={(option: any) => {
-                  formik.setFieldValue(field.name, option ? option.value : "");
-                }}
-                touched={formik.touched[field.name]}
-                error={formik.errors[field.name]}
-                placeholder={field.placeholder}
-              />
-            );
-          }
-
-          if (field.type === "phone")
-            return (
-              <PhoneField
-                key={field.name}
-                onBlur={() => {
-                  formik.setFieldTouched(field.name);
-                }}
-                onChange={(val) => {
-                  formik.setFieldValue(field.name, val);
-                }}
-                value={formik.values[field.name]}
-                label={field.label}
-                error={formik.errors[field.name]}
-                touched={formik.touched[field.name]}
-                country="us"
-                placeholder={field.placeholder}
-              />
-            );
-
-          return (
-            <TextField
-              key={field.name}
-              name={field.name}
-              id={field.name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values[field.name]}
-              className="w-full"
-              label={field.label}
-              error={formik.errors[field.name]}
-              touched={formik.touched[field.name]}
-              type={field.inputType}
-              placeholder={field.placeholder}
-            />
-          );
-        })}
-        <Button className="h-[56px]" type="submit">
-          Next Step {">"}
-        </Button>
+        <div className="register-step__fields">
+          <TextField
+            label="FULL NAME*"
+            name="fullName"
+            id="fullName"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.fullName}
+            className="w-full"
+            error={formik.errors.fullName}
+            touched={formik.touched.fullName}
+            placeholder="Ex. John Doe"
+          />
+          <SelectField
+            label="Country*"
+            options={countries}
+            name="Country"
+            inputId="Country"
+            value={
+              (countries
+                ? countries.find(
+                    (option) => option.value === formik.values.country
+                  )
+                : null) as any
+            }
+            onChange={(option: any) => {
+              formik.setFieldValue("country", option ? option.value : "", true);
+            }}
+            blurInputOnSelect
+            touched={formik.touched.country}
+            error={formik.errors.country}
+            placeholder="Choose from list..."
+          />
+          <TextField
+            label="EMAIL*"
+            name="email"
+            id="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            className="w-full"
+            error={formik.errors.email}
+            touched={formik.touched.email}
+            placeholder="email@email.com"
+          />
+          <PhoneField
+            onBlur={() => {
+              formik.setFieldTouched("phoneNumber");
+            }}
+            onChange={(val) => {
+              formik.setFieldValue("phoneNumber", val);
+            }}
+            value={formik.values["phoneNumber"]}
+            label="Phone Number*"
+            error={formik.errors["phoneNumber"]}
+            touched={formik.touched["phoneNumber"]}
+            country="us"
+            placeholder="+972525677444"
+          />
+          <TextField
+            type="password"
+            label="PASSWORD*"
+            name="password"
+            id="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+            className="w-full"
+            error={formik.errors.password}
+            touched={formik.touched.password}
+            placeholder="Min 6 characters"
+          />
+          <TextField
+            type="password"
+            label="CONFIRM PASSWORD*"
+            name="passwordConfirmation"
+            id="passwordConfirmation"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.passwordConfirmation}
+            className="w-full"
+            error={formik.errors.passwordConfirmation}
+            touched={formik.touched.passwordConfirmation}
+            placeholder="******"
+          />
+        </div>
+        <StepActions withBack={false} />
       </form>
     </div>
   );

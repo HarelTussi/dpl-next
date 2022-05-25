@@ -10,9 +10,8 @@ import React from "react";
 import Check from "../assets/check.svg";
 import { useFormik } from "formik";
 import * as yup from "yup";
-type Props = {};
 
-const Login = (props: Props) => {
+const Login = () => {
   return (
     <Page>
       <Head>
@@ -96,7 +95,9 @@ const EmailLogin = () => {
       email: "",
       password: "",
     },
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
 
   return (

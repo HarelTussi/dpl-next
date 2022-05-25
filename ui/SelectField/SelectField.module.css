@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .container :global(.ui-select__control) {
   height: 48px;
   border: none;

@@ -1,0 +1,26 @@
+.container {
+}
+
+.container :global(.register-step__fields) {
+  display: grid;
+  gap: 1rem;
+}
+
+.container :global(.register__next-step) {
+}
+
+@media (min-width: 768px) {
+  .container :global(.register-step__fields) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container :global(.register-step__fields) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}

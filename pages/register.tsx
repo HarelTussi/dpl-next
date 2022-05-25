@@ -1,61 +1,74 @@
+import BusinessDetails from "@components/Registration/BusinessDetails";
 import CreateAccount from "@components/Registration/CreatAccount";
+import ReferenceOne from "@components/Registration/ReferenceOne";
+import ReferenceTwo from "@components/Registration/ReferenceTwo";
+import ThankYou from "@components/Registration/ThankYou";
+import Walkthrough from "@components/Registration/Walkthrough";
+import useScrollToTop from "@hooks/useScrollToTop";
 import Container from "@ui/Container";
 import Divider from "@ui/Divider";
 import Heading from "@ui/Heading";
 import Page from "@ui/Page";
 import Paragraph from "@ui/Paragraph";
+import { clsx } from "@utils/index";
 import Head from "next/head";
-import Link from "next/link";
-import React from "react";
+import { useEffect } from "react";
 import { useRegistrationStore } from "stores/registration";
-
-type Props = {};
-
-const steps = [CreateAccount];
-
-const Register = (props: Props) => {
+import styles from "../styles/register.module.css";
+const steps = [CreateAccount, BusinessDetails, ReferenceOne, ReferenceTwo];
+const titles = [
+  "Create Account",
+  "Business Details",
+  "Reference 1",
+  "Reference 2",
+];
+const Register = () => {
   const step = useRegistrationStore((state) => state.step);
+  const isInLastStep = step === steps.length + 1;
+  const scrollToTop = useScrollToTop();
+  useEffect(() => {
+    scrollToTop();
+  }, [step, scrollToTop]);
+
   return (
     <Page>
       <Head>
         <title>Register to DPL</title>
       </Head>
-      <Container>
-        <div className="border border-primary-40 p-6">
-          <div>
-            <Paragraph className="mb-2">
-              {step}/{steps.length}
-            </Paragraph>
-            {steps.map((Comp, index) =>
-              step === index + 1 ? <Comp key={index} /> : null
+      <Container className="xl:flex xl:w-full xl:flex-1 xl:items-center xl:justify-center">
+        <div
+          className={clsx(
+            "border border-primary-40 bg-white p-6 xl:h-[550px] xl:w-full xl:p-16",
+            styles.container
+          )}
+        >
+          <div className="w-full xl:flex xl:h-full xl:flex-row-reverse">
+            {!isInLastStep && (
+              <div className="md:max-w-[550px] lg:max-w-[660px] xl:max-w-none xl:flex-[1]">
+                <div className="mb-2 md:flex md:items-center">
+                  <Heading type="Heading 02">{titles[step - 1]}</Heading>
+                  <Paragraph className="md:ml-4">
+                    {step}/{steps.length}
+                  </Paragraph>
+                </div>
+                {steps.map((Comp, index) =>
+                  step === index + 1 ? <Comp key={index} /> : null
+                )}
+              </div>
             )}
-          </div>
-          <Divider />
-          <div>
-            <Heading type="Subhead 01">The Diamond Price List - DPL™</Heading>
-            <Paragraph className="mt-4">
-              The DPL is accessible only to the diamond trade members, and is in
-              full compliance using multiple security levels and close
-              monitoring in order to make sure your details are secured and
-              confidential. This Is ensured using multiple advanced security
-              protocols, including AML/KYC verification process.
-            </Paragraph>
-            <Paragraph className="mt-4 text-primary-70">
-              By clicking Next step, you agree to our
-              <Link href="/terms">
-                <a className="inline-block underline"> Terms and Conditions</a>
-              </Link>{" "}
-              and{" "}
-              <Link href="/privacy">
-                <a className="inline-block underline">Privacy Policy</a>
-              </Link>
-            </Paragraph>
-            <Paragraph className="mt-6">
-              I have an account,{" "}
-              <Link href="/login">
-                <a className="inline-block font-bold underline">Sign in</a>
-              </Link>
-            </Paragraph>
+            {!isInLastStep && (
+              <Divider className="md:max-w-[600px] xl:hidden xl:max-w-[720px]" />
+            )}
+            {!isInLastStep && (
+              <Divider
+                type="vertical"
+                className="hidden xl:mr-14 xl:ml-20 xl:block xl:h-[400px] "
+              />
+            )}
+            <div className="md:max-w-[550px] lg:max-w-[660px]  xl:max-w-none xl:flex-[1.1]">
+              {!isInLastStep && <Walkthrough />}
+            </div>
+            {isInLastStep && <ThankYou />}
           </div>
         </div>
       </Container>

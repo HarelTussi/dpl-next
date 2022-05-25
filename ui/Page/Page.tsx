@@ -6,8 +6,14 @@ type Props = {
 
 const Page = ({ children, withGridLines = true }: Props) => {
   return (
-    <div className={"relative min-h-full pt-[120px] pb-[80px]"}>
-      <div className="relative z-30">{children}</div>
+    <div
+      className={
+        "relative flex min-h-full flex-col pt-[120px] pb-[80px] md:min-h-0 lg:min-h-0 xl:min-h-full"
+      }
+    >
+      <div className="relative z-30 flex min-h-full flex-1 flex-col">
+        {children}
+      </div>
       {withGridLines && (
         <div className="absolute top-0 left-0 z-0 h-full w-full">
           <Container className="grid h-full w-full grid-cols-3 lg:grid-cols-6">

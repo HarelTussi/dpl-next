@@ -62,7 +62,7 @@ const ContactUs = () => {
       companyName: "",
       message: "",
     },
-    onSubmit: (data) => {},
+    onSubmit: () => {},
   });
 
   return (
@@ -90,10 +90,8 @@ const ContactUs = () => {
                       field?.isTextArea ? "md:col-span-2" : ""
                     }
                     className={field?.isTextArea ? "!h-40 w-full" : "w-full"}
-                    fieldLabelProps={{
-                      children: field.label,
-                      className: "block mb-2",
-                    }}
+                    label={field.label}
+                    labelClassName="block mb-2"
                     touched={formik.touched[field.name]}
                     error={formik.errors[field.name]}
                   />

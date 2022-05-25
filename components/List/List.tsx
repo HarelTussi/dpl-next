@@ -56,17 +56,17 @@ const List = ({ roundJson, fancyJson }: Props) => {
     setCarats(carats);
     setList(groupsByCarat);
 
-    const downloadPdf = () => {
-      if (listType === "round") {
-        window.open(
-          "https://lucy-common-files.s3.eu-west-1.amazonaws.com/DPL_price_list_ROUND_2022.pdf"
-        );
-      } else {
-        window.open(
-          "https://lucy-common-files.s3.eu-west-1.amazonaws.com/DPL_price_list_FANCY_2022.pdf"
-        );
-      }
-    };
+    // const downloadPdf = () => {
+    //   if (listType === "round") {
+    //     window.open(
+    //       "https://lucy-common-files.s3.eu-west-1.amazonaws.com/DPL_price_list_ROUND_2022.pdf"
+    //     );
+    //   } else {
+    //     window.open(
+    //       "https://lucy-common-files.s3.eu-west-1.amazonaws.com/DPL_price_list_FANCY_2022.pdf"
+    //     );
+    //   }
+    // };
   }, [listType, roundJson, fancyJson]);
 
   return (

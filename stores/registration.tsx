@@ -1,42 +1,8 @@
+import { Base64File } from "types/base64";
 import create from "zustand";
 
-interface AccountDetails {
-  fullName: string;
-  country: string;
-  email: string;
-  phoneNumber: string;
-  password: string;
-  passwordConfirmation: string;
-}
-
-interface BusinessDetails {
-  companyName: string;
-  companyCountry: string;
-  companyEmail: string;
-  companyPhone: string;
-  companyType: string;
-  files: any[];
-}
-
-interface ReferenceDetails {
-  companyName: string;
-  companyCountry: string;
-  companyEmail: string;
-  contactPerson: string;
-}
-
-interface RegistrationState {
-  step: number;
-  accountDetails: AccountDetails;
-  businessDetails: BusinessDetails;
-  referenceOne: ReferenceDetails;
-  referenceTwo: ReferenceDetails;
-  stepForward: () => void;
-  stepBackward: () => void;
-}
-
 const initialValues = {
-  step: 1,
+  step: 5,
   accountDetails: {
     fullName: "",
     email: "",
@@ -51,29 +17,44 @@ const initialValues = {
     companyEmail: "",
     companyPhone: "",
     companyType: "",
-    files: [],
   },
   referenceOne: {
-    companyName: "",
-    companyCountry: "",
-    companyEmail: "",
-    contactPerson: "",
+    refCompanyName: "",
+    refCountry: "",
+    refCompanyContact: "",
+    refCompanyEmail: "",
+    refPhoneNumber: "",
   },
   referenceTwo: {
-    companyName: "",
-    companyCountry: "",
-    companyEmail: "",
-    contactPerson: "",
+    refCompanyContact: "",
+    refCompanyName: "",
+    refCountry: "",
+    refCompanyEmail: "",
+    refPhoneNumber: "",
   },
+  files: [] as Base64File[],
 };
 
-export const useRegistrationStore = create<RegistrationState>((set) => ({
+type RegistrationDetails = typeof initialValues;
+
+interface RegistrationActions {
+  stepForward: () => void;
+  stepBackward: () => void;
+  setAccountDetails: (
+    newAccountDetails: typeof initialValues["accountDetails"]
+  ) => void;
+  setBusinessDetails: (
+    businessDetails: typeof initialValues["businessDetails"]
+  ) => void;
+  setReferenceOne: (ref: typeof initialValues["referenceOne"]) => void;
+  setReferenceTwo: (ref: typeof initialValues["referenceTwo"]) => void;
+  setFiles: (files: typeof initialValues["files"]) => void;
+}
+
+export const useRegistrationStore = create<
+  RegistrationDetails & RegistrationActions
+>((set) => ({
   ...initialValues,
-  setStep: (val: number) =>
-    set((state) => ({
-      ...state,
-      step: val,
-    })),
   stepForward: () =>
     set((state) => ({
       ...state,
@@ -83,5 +64,30 @@ export const useRegistrationStore = create<RegistrationState>((set) => ({
     set((state) => ({
       ...state,
       step: state.step - 1,
+    })),
+  setAccountDetails: (accountDetails) =>
+    set((state) => ({
+      ...state,
+      accountDetails,
+    })),
+  setBusinessDetails: (businessDetails) =>
+    set((state) => ({
+      ...state,
+      businessDetails,
+    })),
+  setReferenceOne: (ref) =>
+    set((state) => ({
+      ...state,
+      referenceOne: ref,
+    })),
+  setReferenceTwo: (ref) =>
+    set((state) => ({
+      ...state,
+      referenceTwo: ref,
+    })),
+  setFiles: (files) =>
+    set((state) => ({
+      ...state,
+      files,
     })),
 }));

@@ -1,6 +1,5 @@
 import FieldError from "@ui/FieldError";
 import FieldLabel from "@ui/FieldLabel";
-import Paragraph from "@ui/Paragraph";
 import { clsx } from "@utils/index";
 import React from "react";
 
@@ -9,7 +8,8 @@ type Props = {
   className?: string;
   error?: string;
   touched?: boolean;
-  fieldLabelProps?: React.ComponentProps<typeof FieldLabel>;
+  label?: string;
+  labelClassName?: string;
 };
 
 const TextareaField = React.forwardRef<
@@ -17,7 +17,15 @@ const TextareaField = React.forwardRef<
   Props & React.InputHTMLAttributes<HTMLTextAreaElement>
 >(
   (
-    { touched, error, containerClassName, className, fieldLabelProps, ...rest },
+    {
+      touched,
+      error,
+      containerClassName,
+      className,
+      label,
+      labelClassName,
+      ...rest
+    },
     ref
   ) => {
     const showError = !!touched && !!error;
@@ -32,8 +40,10 @@ const TextareaField = React.forwardRef<
     );
     return (
       <div className={containerClassNames}>
-        {!!fieldLabelProps && (
-          <FieldLabel htmlFor={rest.name} {...fieldLabelProps} />
+        {!!label && (
+          <FieldLabel htmlFor={rest.name} className={labelClassName}>
+            {label}
+          </FieldLabel>
         )}
         <textarea className={classNames} ref={ref} {...rest} />
         {showError && <FieldError error={error} />}

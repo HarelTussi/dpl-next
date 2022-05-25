@@ -1,3 +1,10 @@
+.container {
+  position: relative;
+}
+.containerError :global(.react-tel-input) {
+  border: 1px solid var(--clr-error-50);
+}
+
 .container :global(.special-label) {
   display: none;
 }
