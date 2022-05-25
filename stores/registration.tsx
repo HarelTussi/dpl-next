@@ -2,7 +2,7 @@ import { Base64File } from "types/base64";
 import create from "zustand";
 
 const initialValues = {
-  step: 5,
+  step: 1,
   accountDetails: {
     fullName: "",
     email: "",

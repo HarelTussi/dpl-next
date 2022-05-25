@@ -15,9 +15,9 @@ const StepActions = ({
 }: Props) => {
   return (
     <div
-      className="flex w-full flex-col-reverse
-      md:flex md:flex-row md:items-center md:justify-between
-      xl:mt-4
+      className="mt-4 flex w-full
+      flex-col-reverse md:flex md:flex-row md:items-center
+      md:justify-between
       "
     >
       <Paragraph

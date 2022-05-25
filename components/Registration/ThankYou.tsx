@@ -8,10 +8,10 @@ const ThankYou = () => {
   const router = useRouter();
 
   return (
-    <div className="xl:flex xl:h-full xl:w-full xl:items-center xl:justify-center">
+    <div className="flex flex-1 flex-col items-center justify-center">
       <div
         className="flex flex-col items-center text-center 
-                md:min-h-[calc(100vh_-_var(--headerHeight)_-_200px)] md:justify-center lg:min-h-0 lg:py-8"
+                 md:justify-center md:py-8"
       >
         <svg
           width="72"
@@ -29,17 +29,17 @@ const ThankYou = () => {
         <Heading type="Subhead 01" className="mt-8 mb-6 text-center">
           Thank you for choosing The Diamond Price List
         </Heading>
-        <Paragraph className="lg:mb-4 lg:max-w-[510px]">
+        <Paragraph className="md:mb-4 md:max-w-[510px]">
           Thank you for registering for access to The Diamond Price List. We are
           reviewing and will notify you within 48 hours regarding your approval
           status.
         </Paragraph>
-        <Paragraph>
+        <Paragraph className="mt-2">
           Feel free to get in touch at info@thediamondpriclist.com
         </Paragraph>
         <Button
           onClick={() => router.push("/")}
-          className="mb-6 h-[56px] w-full text-white lg:mt-8 lg:min-h-[56px] lg:w-[200px]"
+          className="my-6 h-[56px] w-full text-white md:mt-8 md:min-h-[56px] md:w-[200px]"
         >
           Back To Home
         </Button>

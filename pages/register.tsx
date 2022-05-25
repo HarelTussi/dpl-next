@@ -35,14 +35,20 @@ const Register = () => {
       <Head>
         <title>Register to DPL</title>
       </Head>
-      <Container className="xl:flex xl:w-full xl:flex-1 xl:items-center xl:justify-center">
+      <Container
+        className={clsx(
+          "xl:flex xl:w-full xl:flex-1 xl:items-center xl:justify-center",
+          isInLastStep ? "flex flex-1 flex-col" : ""
+        )}
+      >
         <div
           className={clsx(
             "border border-primary-40 bg-white p-6 xl:h-[550px] xl:w-full xl:p-16",
-            styles.container
+            styles.container,
+            isInLastStep ? "flex flex-1 flex-col" : ""
           )}
         >
-          <div className="w-full xl:flex xl:h-full xl:flex-row-reverse">
+          <div className="flex w-full flex-1 flex-col xl:flex xl:h-full xl:flex-row-reverse">
             {!isInLastStep && (
               <div className="md:max-w-[550px] lg:max-w-[660px] xl:max-w-none xl:flex-[1]">
                 <div className="mb-2 md:flex md:items-center">
@@ -65,9 +71,11 @@ const Register = () => {
                 className="hidden xl:mr-14 xl:ml-20 xl:block xl:h-[400px] "
               />
             )}
-            <div className="md:max-w-[550px] lg:max-w-[660px]  xl:max-w-none xl:flex-[1.1]">
-              {!isInLastStep && <Walkthrough />}
-            </div>
+            {!isInLastStep && (
+              <div className="md:max-w-[550px] lg:max-w-[660px]  xl:max-w-none xl:flex-[1.1]">
+                <Walkthrough />
+              </div>
+            )}
             {isInLastStep && <ThankYou />}
           </div>
         </div>
