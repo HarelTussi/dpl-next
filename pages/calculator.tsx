@@ -11,7 +11,7 @@ const Calcualtor = () => {
   return (
     <Page>
       <Head>
-        <title>Calcualtor</title>
+        <title>Calculator</title>
       </Head>
       <Container>
         <Hero />

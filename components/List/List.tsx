@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { PriceListItem } from "types/list";
 import { groupBy } from "lodash";
 import styles from "./List.module.css";
+import { clsx } from "@utils/index";
+import { usePriceListStore } from "stores/pricelist";
+import QuickFind from "./QuickFind";
+import Paragraph from "@ui/Paragraph";
+import SelectField from "@ui/SelectField";
 type Props = {
   roundJson: PriceListItem[];
   fancyJson: PriceListItem[];
@@ -31,7 +36,8 @@ const List = ({ roundJson, fancyJson }: Props) => {
   const [clarities, setClarities] = useState([] as string[]);
   const [colors, setColors] = useState([] as string[]);
   const [carats, setCarats] = useState([] as string[]);
-  const [listType, setListType] = useState<"round" | "fancy">("round");
+  const listType = usePriceListStore((state) => state.listType);
+  const setListType = usePriceListStore((state) => state.setListType);
 
   useEffect(() => {
     const list = listType === "round" ? roundJson : fancyJson;
@@ -51,7 +57,7 @@ const List = ({ roundJson, fancyJson }: Props) => {
       // @ts-ignore
       (item) => item.clarity
     );
-    setClarities(["", ...clarities]);
+    setClarities([...clarities]);
     setColors(colors);
     setCarats(carats);
     setList(groupsByCarat);
@@ -72,21 +78,29 @@ const List = ({ roundJson, fancyJson }: Props) => {
   return (
     <div>
       {/* actions container */}
-      <div className="flex h-[60px] items-center rounded-t-lg bg-[#fafbfe]">
+      <div className="flex h-[60px] items-center rounded-t-lg bg-[#fafbfe] px-4">
+        <Paragraph className="mr-4">List Type</Paragraph>
         <select
-          className=" h-10 w-24 rounded-2xl bg-[#212121] px-2 text-white outline-none"
+          className="h-10 w-32 rounded-md bg-black px-2 text-white outline-none"
           onChange={(e) => setListType(e.target.value as any)}
+          value={listType}
         >
           <option value="round">Round</option>
           <option value="fancy">Fancy</option>
         </select>
-        <GraphIcon />
+        <QuickFind />
       </div>
-      <div>
+      <div className="lg:grid lg:grid-cols-2">
         {carats &&
-          carats.map((carat) => {
+          carats.map((carat, index) => {
             return (
-              <div key={carat} className="bg-white">
+              <div
+                key={carat}
+                className={clsx(
+                  "bg-white",
+                  index + 1 === carats.length ? "col-span-2" : ""
+                )}
+              >
                 {/* title */}
                 <div className="flex h-14 items-center justify-between bg-primary-100 px-4">
                   <h4 className="flex-1 uppercase text-white">DPL</h4>
@@ -96,6 +110,11 @@ const List = ({ roundJson, fancyJson }: Props) => {
                 </div>
                 {/* clarities */}
                 <div className="grid grid-cols-10">
+                  <div className={clsx(styles.clarityCell, "text-center")}>
+                    Clarity
+                    <br />
+                    Color
+                  </div>
                   {clarities.map((clarity) => {
                     const className = getClarityClassName(clarity);
                     return (
@@ -174,104 +193,6 @@ const RoundIcon = () => {
         data-name="Path 336"
         transform="translate(-.034 -.034)"
       />
-    </svg>
-  );
-};
-
-const GraphIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="40"
-      height="40"
-      viewBox="0 0 40 40"
-    >
-      <g id="Group_7908" data-name="Group 7908" transform="translate(-419 -11)">
-        <rect
-          id="Rectangle_2906"
-          data-name="Rectangle 2906"
-          width="40"
-          height="40"
-          rx="5"
-          transform="translate(419 11)"
-          fill="#212121"
-        />
-        <g id="Group_7907" data-name="Group 7907" transform="translate(427 19)">
-          <path
-            id="Path_9542"
-            data-name="Path 9542"
-            d="M0,0H24V24H0Z"
-            fill="none"
-          />
-          <circle
-            id="Ellipse_831"
-            data-name="Ellipse 831"
-            cx="4"
-            cy="4"
-            r="4"
-            transform="translate(3 3)"
-            fill="none"
-            stroke="#fff"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <path
-            id="Path_9543"
-            data-name="Path 9543"
-            d="M7,3V7h4"
-            fill="none"
-            stroke="#fff"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <line
-            id="Line_671"
-            data-name="Line 671"
-            y2="4"
-            transform="translate(9 17)"
-            fill="none"
-            stroke="#fff"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <line
-            id="Line_672"
-            data-name="Line 672"
-            y2="7"
-            transform="translate(17 14)"
-            fill="none"
-            stroke="#fff"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <line
-            id="Line_673"
-            data-name="Line 673"
-            y2="8"
-            transform="translate(13 13)"
-            fill="none"
-            stroke="#fff"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-          <line
-            id="Line_674"
-            data-name="Line 674"
-            y2="9"
-            transform="translate(21 12)"
-            fill="none"
-            stroke="#fff"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          />
-        </g>
-      </g>
     </svg>
   );
 };

@@ -10,7 +10,8 @@
 }
 
 .priceCell:focus,
-.priceCell:active {
+.priceCell:active,
+.priceCell:hover {
   background-color: rgba(147, 234, 255, 0.59) !important;
 }
 
@@ -40,4 +41,26 @@
 
 .cellWithBorderBottom {
   border-bottom: 1px solid var(--black);
+}
+
+@media (min-width: 768px) {
+  .priceCell,
+  .colorCell,
+  .clarityCell {
+    font-size: 14px;
+    height: 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .priceCell,
+  .colorCell,
+  .clarityCell {
+    font-size: 14px;
+    height: 55px;
+  }
+}
+
+#next :global(.quick-find__cell) {
+  background-color: red;
 }

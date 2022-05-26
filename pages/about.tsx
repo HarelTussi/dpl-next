@@ -90,13 +90,7 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
             },
           ].map(({ title, text, icon }, index) => {
             return (
-              <InfoBox
-                key={index}
-                icon={<Image alt="check" src={icon} width={32} height={32} />}
-                title={title}
-                text={text}
-                textClassName="max-w-[90%]"
-              />
+              <InfoBox key={index} icon={icon} title={title} text={text} />
             );
           })}
         </Section>

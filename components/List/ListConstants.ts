@@ -22889,3 +22889,47 @@ export const fancyJson = (
     },
   ] as const
 ).filter((item) => !CLARITY_TO_REMOVE.includes(item.clarity));
+
+export const types = [
+  { label: "Round", value: "round" },
+  { label: "Fancy", value: "fancy" },
+];
+
+export const colors = [
+  { value: "D", label: "D" },
+  { value: "E", label: "E" },
+  { value: "F", label: "F" },
+  { value: "G", label: "G" },
+  { value: "H", label: "H" },
+  { value: "I", label: "I" },
+  { value: "J", label: "J" },
+  { value: "K", label: "K" },
+  { value: "L", label: "L" },
+  { value: "M", label: "M" },
+];
+export const clarity = [
+  { value: "IF", label: "IF" },
+  { value: "VVS1", label: "VVS1" },
+  { value: "VVS2", label: "VVS2" },
+  { value: "VS1", label: "VS1" },
+  { value: "VS2", label: "VS2" },
+  { value: "SI1", label: "SI1" },
+  { value: "SI2", label: "SI2" },
+  { value: "SI3", label: "SI3" },
+  { value: "I1", label: "I1" },
+];
+export const carat = [
+  { value: "0.3-0.39", label: "0.3 - 0.39" },
+  { value: "0.4-0.49", label: "0.4 - 0.49" },
+  { value: "0.5-0.69", label: "0.5 - 0.69" },
+  { value: "0.7-0.89", label: "0.7 - 0.89" },
+  { value: "0.9-0.99", label: "0.9 - 0.99" },
+  { value: "1-1.49", label: "1 - 1.49" },
+  { value: "1.5-1.99", label: "1.5 - 1.99" },
+  { value: "2-2.99", label: "2 - 2.99" },
+  { value: "3-3.99", label: "3 - 3.99" },
+  { value: "4-4.99", label: "4 - 4.99" },
+  { value: "5-6.99", label: "5 - 6.99" },
+  { value: "7-9.99", label: "7 - 9.99" },
+  { value: "10-100", label: "10 - 100" },
+];
