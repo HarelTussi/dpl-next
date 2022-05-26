@@ -1,5 +1,4 @@
 import SelectField from "@ui/SelectField";
-import Heading from "@ui/Heading";
 import TextField from "@ui/TextField";
 import React, { useCallback } from "react";
 import { useRegistrationStore } from "stores/registration";

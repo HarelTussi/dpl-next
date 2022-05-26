@@ -50,7 +50,10 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
       </Head>
       <Container>
         <Hero stats={stats} />
-        <Benefits benefits={benefits} />
+        <Benefits
+          benefits={benefits}
+          className="grid gap-y-4 lg:grid lg:grid-cols-3 lg:gap-x-4"
+        />
         <NeverSeenBefore />
         <YourDiamonds />
         <GoToApp />

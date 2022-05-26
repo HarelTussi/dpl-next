@@ -1,39 +1,25 @@
-import { clsx } from "@utils/index";
+import Heading from "@ui/Heading";
+import Paragraph from "@ui/Paragraph";
+import Image from "next/image";
 import React from "react";
 
 type Props = {
-  icon: React.ReactNode;
+  icon: string;
   title: React.ReactNode;
   text: React.ReactNode;
-  iconClassName?: string;
-  titleClassName?: string;
-  textClassName?: string;
 };
 
-const InfoBox = ({
-  icon,
-  title,
-  text,
-  iconClassName = "",
-  titleClassName = "",
-  textClassName = "",
-}: Props) => {
+const InfoBox = ({ icon, title, text }: Props) => {
   return (
     <div
-      className="flex flex-col items-center rounded-md border border-primary-30 bg-white py-10
-    text-center
-    "
+      className="flex flex-col items-center  
+                 border border-[#EDEDED] bg-white py-8 text-center"
     >
-      <div className={clsx("mb-2 h-12", iconClassName)}>{icon}</div>
-      <h4 className={clsx("text-xl font-bold", titleClassName)}>{title}</h4>
-      <p
-        className={clsx(
-          "mt-4 max-w-[90%] text-base font-normal text-primary-100",
-          textClassName
-        )}
-      >
-        {text}
-      </p>
+      <Image width={32} height={32} src={icon} alt="icon" />
+      <Heading type="Subhead 02" className="mt-6 !leading-7">
+        {title}
+      </Heading>
+      <Paragraph className="mt-4 w-[90%]">{text}</Paragraph>
     </div>
   );
 };
