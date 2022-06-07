@@ -2,27 +2,38 @@ import Image from "next/image";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import Container from "@ui/Container";
+import { INISGHTS_CLIENT_URL } from "config";
 
 const Footer = () => {
   const sections = [
     {
       title: "PRODUCT",
-      links: [{ label: "Price List" }, { label: "DPL Calculator" }],
+      links: [
+        {
+          label: "Price List",
+          outside: true,
+          href: INISGHTS_CLIENT_URL + "/pricelist",
+        },
+        { label: "DPL Calculator", href: "/calculator", outside: false },
+      ],
     },
     {
       title: "ABOUT",
-      links: [{ label: "About Us" }, { label: "Methodology" }],
+      links: [
+        { label: "About Us", href: "/about", outside: false },
+        { label: "Methodology", href: "/methodology", outside: false },
+      ],
     },
     {
       title: "SUPPORT",
       links: [
-        { label: "FAQ" },
-        { label: "Contact Us" },
-        { label: "Terms of Use" },
-        { label: "Privacy Policy" },
+        { label: "FAQ", outside: false, href: "/support#faq" },
+        { label: "Contact Us", outside: false, href: "/support" },
+        { label: "Terms of Use", outside: false, href: "/terms" },
+        { label: "Privacy Policy", outside: false, href: "/privacy" },
       ],
     },
-  ];
+  ] as const;
   return (
     <div className="bg-black pt-10 ">
       {/* first section */}
@@ -53,14 +64,26 @@ const Footer = () => {
                     </Disclosure.Button>
                     <Disclosure.Panel className="text-gray-500">
                       <ul>
-                        {links.map(({ label }, index) => {
+                        {links.map(({ label, outside, href }, index) => {
                           return (
                             <li className="mt-4" key={index}>
-                              <Link href="/pricelist">
-                                <a className="text-sm font-normal text-white">
+                              {outside ? (
+                                <a
+                                  key={index}
+                                  className="text-sm font-normal text-white"
+                                  href={href}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
                                   {label}
                                 </a>
-                              </Link>
+                              ) : (
+                                <Link href={href} key={index}>
+                                  <a className="text-sm font-normal text-white">
+                                    {label}
+                                  </a>
+                                </Link>
+                              )}
                             </li>
                           );
                         })}

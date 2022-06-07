@@ -1,7 +1,6 @@
 import Button from "@ui/Button";
 import Container from "@ui/Container";
 import Heading from "@ui/Heading";
-import Page from "@ui/Page";
 import Paragraph from "@ui/Paragraph";
 import TextField from "@ui/TextField";
 import Head from "next/head";
@@ -10,10 +9,11 @@ import React from "react";
 import Check from "../assets/check.svg";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import AuthPage from "@components/Page/AuthPage";
 
 const Login = () => {
   return (
-    <Page>
+    <AuthPage>
       <Head>
         <title>Login to DPL</title>
       </Head>
@@ -37,7 +37,7 @@ const Login = () => {
           <EmailLogin />
         </div>
       </Container>
-    </Page>
+    </AuthPage>
   );
 };
 
@@ -140,7 +140,7 @@ const EmailLogin = () => {
       </Link>
       <Paragraph className="mt-4 block text-sm">
         Don’t have an account yet?
-        <Link href="/forgot">
+        <Link href="/register">
           <a className="ml-2 inline-block text-sm font-bold underline">
             Sign up
           </a>

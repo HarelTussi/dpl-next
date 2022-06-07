@@ -3,13 +3,13 @@ import List from "@components/List/List";
 import { roundJson, fancyJson } from "@components/List/ListConstants";
 import WhatIsMethodology from "@components/WhatIsMethodology";
 import Heading from "@ui/Heading";
-import Page from "@ui/Page";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
+import PrivatePage from "@components/Page/PrivatePage";
 
 type Props = {
   updatedAt: string;
@@ -19,7 +19,7 @@ type Props = {
 
 const pricelist = ({ updatedAt }: Props) => {
   return (
-    <Page>
+    <PrivatePage>
       <Head>
         <title>Price List</title>
       </Head>
@@ -66,7 +66,7 @@ const pricelist = ({ updatedAt }: Props) => {
         </Section>
         <WhatIsMethodology />
       </Container>
-    </Page>
+    </PrivatePage>
   );
 };
 

@@ -1,4 +1,4 @@
-import Button from "@ui/Button";
+import GetTheList from "@components/GetTheList";
 import Heading from "@ui/Heading";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
@@ -30,9 +30,7 @@ const WhatIsMethodology = ({ className = "" }: Props) => {
           algorithms, creating an optimized price list to reflect the market in
           the most accurate and objective manner.
         </Paragraph>
-        <Button className="mt-4 h-[56px] w-full sm:max-w-[200px]">
-          Get The List
-        </Button>
+        <GetTheList className="mt-4 h-[56px] w-full sm:max-w-[200px]" />
       </div>
     </Section>
   );

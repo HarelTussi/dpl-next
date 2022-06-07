@@ -1,6 +1,6 @@
+import GuestPage from "@components/Page/GuestPage";
 import Container from "@ui/Container";
 import Heading from "@ui/Heading";
-import Page from "@ui/Page";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
 import Head from "next/head";
@@ -10,7 +10,7 @@ type Props = {};
 
 const methodlogy = ({}: Props) => {
   return (
-    <Page>
+    <GuestPage>
       <Container withLines={false}>
         <Head>
           <title>Methodology</title>
@@ -222,7 +222,7 @@ const methodlogy = ({}: Props) => {
           </Paragraph>
         </Section>
       </Container>
-    </Page>
+    </GuestPage>
   );
 };
 

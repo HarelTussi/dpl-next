@@ -1,3 +1,4 @@
+import AuthPage from "@components/Page/AuthPage";
 import BusinessDetails from "@components/Registration/BusinessDetails";
 import CreateAccount from "@components/Registration/CreatAccount";
 import ReferenceOne from "@components/Registration/ReferenceOne";
@@ -8,7 +9,6 @@ import useScrollToTop from "@hooks/useScrollToTop";
 import Container from "@ui/Container";
 import Divider from "@ui/Divider";
 import Heading from "@ui/Heading";
-import Page from "@ui/Page";
 import Paragraph from "@ui/Paragraph";
 import { clsx } from "@utils/index";
 import Head from "next/head";
@@ -31,7 +31,7 @@ const Register = () => {
   }, [step, scrollToTop]);
 
   return (
-    <Page>
+    <AuthPage>
       <Head>
         <title>Register to DPL</title>
       </Head>
@@ -80,7 +80,7 @@ const Register = () => {
           </div>
         </div>
       </Container>
-    </Page>
+    </AuthPage>
   );
 };
 

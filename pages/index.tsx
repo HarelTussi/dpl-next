@@ -2,13 +2,13 @@ import type { GetStaticProps } from "next";
 import Container from "@ui/Container";
 import Head from "next/head";
 import { api } from "api";
-import Page from "@ui/Page";
 import Hero from "@components/Home/Hero";
 import Benefits from "@components/Home/Benefits";
 import NeverSeenBefore from "@components/Home/NeverSeenBefore";
 import YourDiamonds from "@components/Home/YourDiamonds";
 import DataScience from "@components/Home/DataScience";
 import GoToApp from "@components/Home/GoToApp";
+import GuestPage from "@components/Page/GuestPage";
 
 interface Props {
   availableDiamonds: string;
@@ -44,7 +44,7 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
   ];
 
   return (
-    <Page>
+    <GuestPage>
       <Head>
         <title>The Diamond Price List</title>
       </Head>
@@ -59,7 +59,7 @@ const Home = ({ availableDiamonds, suppliers, totalValue }: Props) => {
         <GoToApp />
         <DataScience />
       </Container>
-    </Page>
+    </GuestPage>
   );
 };
 

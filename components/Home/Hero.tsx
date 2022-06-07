@@ -1,3 +1,4 @@
+import GetTheList from "@components/GetTheList";
 import YoutubeVideo from "@components/YoutubeVideo";
 import Button from "@ui/Button";
 import Heading from "@ui/Heading";
@@ -26,9 +27,7 @@ const Hero = ({
           on the largest dataset of actual asking prices.
         </Paragraph>
         <div className="mt-4 grid max-w-[400px] grid-cols-1 items-center lg:grid-cols-2">
-          <Button kind="PRIMARY" className="h-[56px] w-full lg:mt-0">
-            Get The List
-          </Button>
+          <GetTheList className="h-[56px] w-full lg:mt-0" />
           <YoutubeVideo link="https://www.youtube.com/embed/0Bx20FfFL7M?autpolay=1">
             <Button
               kind="SECONDARY"

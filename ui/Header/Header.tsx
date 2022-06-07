@@ -1,78 +1,48 @@
 import Button from "@ui/Button";
 import Container from "@ui/Container";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import DPLMobileLogo from "../../assets/dpl-mobile-logo.svg";
 import DPLDesktopLogo from "../../assets/dpl-desktop-logo.svg";
 import Menu from "../../assets/menu.svg";
 import ChevronDown from "../../assets/chevron-down.svg";
 import X from "../../assets/x.svg";
 import { clsx } from "@utils/index";
-
-const HeaderContext = React.createContext<{
-  isDrawerOpen: boolean;
-  isDropdownOpen: boolean;
-  openDrawer: () => void;
-  closeDrawer: () => void;
-  openDropdown: () => void;
-  closeDropdown: () => void;
-}>({
-  isDrawerOpen: false,
-  isDropdownOpen: false,
-  openDrawer: () => {},
-  closeDrawer: () => {},
-  openDropdown: () => {},
-  closeDropdown: () => {},
-});
+import { useHeaderStore } from "stores/header";
+import { INISGHTS_CLIENT_URL } from "config";
+import GetTheList from "@components/GetTheList";
 
 const Header = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const openDrawer = () => setIsDrawerOpen(true);
-  const closeDrawer = () => setIsDrawerOpen(false);
-  const openDropdown = () => {
-    window && window.innerWidth < 1024 && setIsDropdownOpen(true);
-  };
-  const closeDropdown = () => {
-    window && window.innerWidth < 1024 && setIsDropdownOpen(false);
-  };
+  const isDrawerOpen = useHeaderStore((state) => state.isDrawerOpen);
+  const isDropdownOpen = useHeaderStore((state) => state.isDropdownOpen);
   return (
-    <HeaderContext.Provider
-      value={{
-        isDrawerOpen,
-        isDropdownOpen,
-        openDrawer,
-        closeDrawer,
-        openDropdown,
-        closeDropdown,
-      }}
-    >
-      <div className="fixed top-0 left-0 z-[100] w-full bg-white shadow-lg lg:shadow-none">
-        <Container withLines={false}>
-          <div
-            className={clsx(
-              `overflow-hidden transition-all 
+    <div className="fixed top-0 left-0 z-[100] w-full bg-white shadow-lg lg:shadow-none">
+      <Container withLines={false}>
+        <div
+          className={clsx(
+            `overflow-hidden transition-all 
               lg:flex lg:justify-between lg:overflow-visible`,
-              isDrawerOpen
-                ? isDropdownOpen
-                  ? "h-[612px]"
-                  : "h-[512px]"
-                : "h-[70px] lg:h-[80px]"
-            )}
-          >
-            <HeaderLeft />
-            <HeaderLinks />
-            <HeaderGetList />
-          </div>
-        </Container>
-      </div>
-    </HeaderContext.Provider>
+            isDrawerOpen
+              ? isDropdownOpen
+                ? "h-[612px]"
+                : "h-[512px]"
+              : "h-[70px] lg:h-[80px]"
+          )}
+        >
+          <HeaderLeft />
+          <HeaderLinks />
+          <HeaderGetList />
+        </div>
+      </Container>
+    </div>
   );
 };
 
 const HeaderLinks = () => {
-  const { isDropdownOpen, openDropdown, closeDropdown } =
-    React.useContext(HeaderContext);
+  const isDropdownOpen = useHeaderStore((state) => state.isDropdownOpen);
+  const openDropdown = useHeaderStore((state) => state.openDropdown);
+  const closeDropdown = useHeaderStore((state) => state.closeDropdown);
+
   return (
     <div
       className={clsx(
@@ -135,8 +105,19 @@ py-6 lg:relative lg:border-none lg:p-0"
         </div>
       </div>
       <div className="lg:flex lg:whitespace-nowrap">
+        <a
+          href={INISGHTS_CLIENT_URL + "/insights"}
+          target="_blank"
+          rel="noreferrer"
+          className={clsx(
+            `block border-b border-b-primary-40 py-6 text-[21px] font-bold text-primary-100
+    lg:mr-8 lg:border-none lg:p-0 lg:text-[15px]
+  `
+          )}
+        >
+          Insights
+        </a>
         {[
-          { href: "/insights", label: "Insights" },
           { href: "/about", label: "About us" },
           { href: "/support", label: "Support" },
         ].map(({ href, label }, index) => {
@@ -161,8 +142,15 @@ py-6 lg:relative lg:border-none lg:p-0"
 };
 
 const HeaderLeft = ({}) => {
-  const { isDrawerOpen, openDrawer, closeDrawer } =
-    React.useContext(HeaderContext);
+  const isDrawerOpen = useHeaderStore((state) => state.isDrawerOpen);
+  const openDrawer = useHeaderStore((state) => state.openDrawer);
+  const closeDrawer = useHeaderStore((state) => state.closeDrawer);
+  const openDrawerOnlyMobile = () => {
+    window && window?.innerWidth < 1024 && openDrawer();
+  };
+  const closeDrawerOnlyMobile = () => {
+    window && window?.innerWidth < 1024 && closeDrawer();
+  };
   return (
     <div
       className={clsx(
@@ -176,7 +164,7 @@ const HeaderLeft = ({}) => {
         </a>
       </Link>
       <button
-        onClick={isDrawerOpen ? closeDrawer : openDrawer}
+        onClick={isDrawerOpen ? closeDrawerOnlyMobile : openDrawerOnlyMobile}
         className="flex items-center lg:hidden"
       >
         {isDrawerOpen ? <X /> : <Menu />}
@@ -188,9 +176,7 @@ const HeaderLeft = ({}) => {
 const HeaderGetList = () => {
   return (
     <div className="lg:flex lg:flex-1 lg:items-center lg:justify-end">
-      <Button className="my-8 h-[56px] w-full lg:m-0 lg:h-10 lg:w-[128px]">
-        Get The List
-      </Button>
+      <GetTheList className="my-8 h-[56px] w-full lg:m-0 lg:h-10 lg:w-[128px]" />
     </div>
   );
 };

@@ -1,14 +1,13 @@
 import Container from "@ui/Container";
 import InfoBox from "@components/InfoBox";
 import Heading from "@ui/Heading";
-import Page from "@ui/Page";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
 import { api } from "api";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import React from "react";
+import GuestPage from "@components/Page/GuestPage";
 
 interface Props {
   availableDiamonds: string;
@@ -18,7 +17,7 @@ interface Props {
 
 const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
   return (
-    <Page>
+    <GuestPage>
       <Head>
         <title>About Us</title>
       </Head>
@@ -95,7 +94,7 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
           })}
         </Section>
       </Container>
-    </Page>
+    </GuestPage>
   );
 };
 

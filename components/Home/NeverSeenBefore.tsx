@@ -1,4 +1,4 @@
-import Button from "@ui/Button";
+import GetTheList from "@components/GetTheList";
 import Heading from "@ui/Heading";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
@@ -29,13 +29,10 @@ const NeverSeenBefore = () => {
           The DPL is the first interactive price list of its kind, offering
           users easy price selection features and time saving calculations.
         </Paragraph>
-        <Button
+        <GetTheList
           className="mt-4 h-[56px] w-full
-        md:max-w-[200px]
-        "
-        >
-          Get The List
-        </Button>
+        md:max-w-[200px]"
+        />
       </div>
     </Section>
   );

@@ -6,7 +6,6 @@ import { clsx } from "@utils/index";
 import { usePriceListStore } from "stores/pricelist";
 import QuickFind from "./QuickFind";
 import Paragraph from "@ui/Paragraph";
-import SelectField from "@ui/SelectField";
 type Props = {
   roundJson: PriceListItem[];
   fancyJson: PriceListItem[];
