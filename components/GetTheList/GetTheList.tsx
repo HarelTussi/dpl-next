@@ -12,7 +12,7 @@ const GetTheList = ({
         "pointer flex items-center justify-center rounded-md bg-black font-mullish text-white shadow-sm active:bg-primary-90 disabled:bg-primary-40 disabled:text-primary-60",
         className
       )}
-      href={INISGHTS_CLIENT_URL}
+      href={INISGHTS_CLIENT_URL + "/pricelist"}
       target="_blank"
       rel="noreferrer"
       {...rest}
