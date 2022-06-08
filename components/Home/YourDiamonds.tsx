@@ -2,6 +2,7 @@ import YoutubeVideo from "@components/YoutubeVideo";
 import Heading from "@ui/Heading";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
+import Image from "next/image";
 
 const YourDiamonds = () => {
   return (
@@ -27,11 +28,17 @@ const YourDiamonds = () => {
         <div className="md:flex-1 md:justify-end">
           <YoutubeVideo link="https://www.youtube.com/embed/0Bx20FfFL7M?autpolay=1">
             <div
-              className="h-[200px] w-full bg-black
-            md:h-[300px] 
-            lg:ml-auto lg:h-[300px] lg:w-[450px]
+              className="relative h-[200px] w-full
+            md:h-[300px] lg:ml-auto lg:h-[300px] lg:w-[450px]
             "
-            ></div>
+            >
+              <Image
+                src="/assets/images/your-diamonds-video.png"
+                layout="fill"
+                alt="dpl short video"
+              />
+              <YoutubeVideo.Play className="z-50" />
+            </div>
           </YoutubeVideo>
         </div>
       </div>
