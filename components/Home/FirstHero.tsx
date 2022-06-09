@@ -41,7 +41,7 @@ const FirstHero = () => {
           </a>
         </div>
       </div>
-      <div className="relative mt-16 h-[200px] w-full md:w-96 lg:hidden">
+      <div className="relative mt-16 h-[290px] w-full md:w-96 lg:hidden">
         <Image
           src="/assets/images/hero-big-mobile.png"
           layout="fill"

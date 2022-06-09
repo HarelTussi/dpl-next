@@ -21,16 +21,14 @@ const GoToApp = () => {
         <Heading type="Subhead 03" className="mt-4">
           The most advanced, easy to use, diamond-price calculator:
         </Heading>
-        <div className="mt-4 pl-3">
+        <div className="mt-4">
           {steps.map(({ step }, index) => {
             return (
               <div
                 key={index}
                 className={[
                   "relative flex  pl-4",
-                  index !== steps.length - 1
-                    ? "h-[80px] border-l border-l-primary-30"
-                    : "",
+                  index !== steps.length - 1 ? "h-[80px]" : "",
                 ].join(" ")}
               >
                 <span className="absolute -left-[10px] top-[2px] h-[20px] w-[20px] rounded-full bg-black"></span>

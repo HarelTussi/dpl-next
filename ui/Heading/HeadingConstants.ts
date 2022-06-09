@@ -13,7 +13,7 @@ export const CLASSES = {
   "Display 01":
     "font-bold text-[75px] leading-[94px] xl:text-[100px] xl:leading-[113px] text-primary-100",
   "Display 02":
-    "font-bold text-[44px] leading-[61px] md:text-[54px] md:leading-[68px] text-primary-100",
+    "font-bold text-[38px] leading-[61px] md:text-[54px] md:leading-[68px] text-primary-100",
   "Heading 01":
     "text-[40px] font-bold leading-[53px] text-primary-100 md:text-[48px] md:leading-[60px]",
   "Heading 02":
