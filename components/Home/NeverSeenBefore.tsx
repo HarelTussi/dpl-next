@@ -14,7 +14,7 @@ const NeverSeenBefore = () => {
       "
       >
         <Image
-          src="/assets/images/priceListVideo.gif"
+          src="/assets/images/price-list-table.png"
           layout="fill"
           alt="Price List Video"
           objectFit="contain"
