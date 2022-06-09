@@ -24,7 +24,7 @@ const Header = () => {
               lg:flex lg:justify-between lg:overflow-visible`,
             isDrawerOpen
               ? isDropdownOpen
-                ? "h-[612px]"
+                ? "h-[678px]"
                 : "h-[512px]"
               : "h-[70px] lg:h-[80px]"
           )}
@@ -80,10 +80,20 @@ py-6 lg:relative lg:border-none lg:p-0"
         </div>
         <div
           className={clsx(
-            "overflow-hidden pl-4 transition-all duration-300 lg:absolute lg:left-0 lg:whitespace-nowrap lg:bg-white lg:p-0 lg:group-hover:h-[111px]",
-            isDropdownOpen ? "h-[111px]" : "h-0"
+            "overflow-hidden pl-4 transition-all duration-300 lg:absolute lg:left-0 lg:whitespace-nowrap lg:bg-white lg:p-0 lg:group-hover:h-[166px]",
+            isDropdownOpen ? "h-[166px]" : "h-0"
           )}
         >
+          <a
+            target="_blank"
+            href={INISGHTS_CLIENT_URL + "/pricelist"}
+            className="block pt-6 text-[21px] font-normal text-primary-100
+      lg:mt-4 lg:p-0 lg:text-[15px]
+      "
+            rel="noreferrer"
+          >
+            Get The List
+          </a>
           <Link href="/calculator">
             <a
               className="block pt-6 text-[21px] font-normal text-primary-100
