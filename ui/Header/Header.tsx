@@ -116,7 +116,7 @@ py-6 lg:relative lg:border-none lg:p-0"
       </div>
       <div className="lg:flex lg:whitespace-nowrap">
         <a
-          href={INISGHTS_CLIENT_URL + "/insights"}
+          href={INISGHTS_CLIENT_URL}
           target="_blank"
           rel="noreferrer"
           className={clsx(
