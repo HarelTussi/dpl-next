@@ -7,6 +7,7 @@ import TextField from "@ui/TextField";
 import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { DPL_MAIL_ADDRESS } from "config";
 
 const fields = [
   {
@@ -116,7 +117,7 @@ const ContactUs = () => {
           </Paragraph>
           <Heading type="Subhead 03">Send Us An Email </Heading>
           <Paragraph className="mb-8">
-            Contact DPL™ team at: <a>info@thediamondpricelist.com </a>{" "}
+            Contact DPL™ team at: <a>{DPL_MAIL_ADDRESS}</a>{" "}
           </Paragraph>
           <Heading type="Subhead 03">Chat With Us </Heading>
           <Paragraph className="mb-8">

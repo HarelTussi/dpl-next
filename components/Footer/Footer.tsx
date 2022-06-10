@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import Container from "@ui/Container";
-import { INISGHTS_CLIENT_URL } from "config";
+import { DPL_MAIL_ADDRESS, INISGHTS_CLIENT_URL } from "config";
 
 const Footer = () => {
   const sections = [
@@ -115,10 +115,10 @@ const Footer = () => {
       <Container className="py-10" withLines={false}>
         <div className="flex flex-col items-center md:flex-row">
           <a
-            href="mailto:info@thediamondpricelist.com"
+            href={`mailto:${DPL_MAIL_ADDRESS}`}
             className="text-center text-sm text-white sm:hidden md:order-2 md:px-2 lg:block"
           >
-            info@thediamondpricelist.com
+            {DPL_MAIL_ADDRESS}
           </a>
           <div className="mx-auto my-6 flex items-center md:order-3 md:flex-1 md:justify-end">
             <a

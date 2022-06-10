@@ -3,3 +3,4 @@ export const API_URL =
     ? "https://dpl-next.vercel.app/api"
     : "http://localhost:5005/get-list";
 export const INISGHTS_CLIENT_URL = "https://app.thediamondpricelist.com";
+export const DPL_MAIL_ADDRESS = "info@thediamondpricelist.com";

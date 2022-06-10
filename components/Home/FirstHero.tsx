@@ -1,6 +1,7 @@
 import Heading from "@ui/Heading";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
+import { INISGHTS_CLIENT_URL } from "config";
 import Image from "next/image";
 import React from "react";
 
@@ -25,7 +26,7 @@ const FirstHero = () => {
         <div className="my-4 grid gap-y-4 md:max-w-md md:grid-cols-2 md:gap-x-4">
           <a
             target="_blank"
-            href="https://app.thediamondpricelist.com/"
+            href={INISGHTS_CLIENT_URL}
             rel="noreferrer"
             className="pointer flex h-[56px] w-full items-center justify-center !rounded-none bg-black font-mullish text-white shadow-sm active:bg-primary-90 disabled:bg-primary-40 disabled:text-primary-60"
           >

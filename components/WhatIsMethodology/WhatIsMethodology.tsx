@@ -1,4 +1,3 @@
-import GetTheList from "@components/GetTheList";
 import Heading from "@ui/Heading";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
