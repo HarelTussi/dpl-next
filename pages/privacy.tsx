@@ -2,11 +2,15 @@ import GuestPage from "@components/Page/GuestPage";
 import Container from "@ui/Container";
 import Heading from "@ui/Heading";
 import Paragraph from "@ui/Paragraph";
+import Head from "next/head";
 import React from "react";
 import styles from "../styles/privacy.module.css";
 const Privacy = () => {
   return (
     <GuestPage>
+      <Head>
+        <title>Privacy policy</title>
+      </Head>
       <Container className={styles.container}>
         <div>
           <div>
