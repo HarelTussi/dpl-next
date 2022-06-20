@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import Container from "@ui/Container";
 import { DPL_MAIL_ADDRESS, INISGHTS_CLIENT_URL } from "config";
+import { useFormik } from "formik";
+import { useJoinNewsletter } from "features/newsletter/mutations";
 
 const Footer = () => {
   const sections = [
@@ -34,6 +36,15 @@ const Footer = () => {
       ],
     },
   ] as const;
+  const { mutate } = useJoinNewsletter();
+  const formik = useFormik({
+    initialValues: { email: "" },
+    onSubmit: ({ email }, { setValues }) => {
+      mutate(email);
+      setValues({ email: "" });
+    },
+  });
+
   return (
     <div className="bg-black pt-10 ">
       {/* first section */}
@@ -97,13 +108,24 @@ const Footer = () => {
               <h3 className="text-sm font-bold uppercase text-white">
                 NEWSLETTER
               </h3>
-              <form action="" className="mt-6 grid grid-cols-[2fr,1fr]">
+              <form
+                onSubmit={formik.handleSubmit}
+                className="mt-6 grid grid-cols-[2fr,1fr]"
+              >
                 <input
                   type="text"
                   placeholder="Email address"
-                  className="h-12 rounded-md pl-4 text-sm placeholder:text-black"
+                  className="h-12 pl-4 text-sm placeholder:text-black"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  name="email"
+                  id="email"
                 />
-                <button className="ml-3 h-12 rounded-md border border-white px-4 text-sm text-white">
+                <button
+                  type="submit"
+                  className=" h-12 border border-white px-4 text-sm text-white"
+                >
                   Subscribe
                 </button>
               </form>
@@ -116,7 +138,10 @@ const Footer = () => {
         <div className="flex flex-col items-center md:flex-row">
           <a
             href={`mailto:${DPL_MAIL_ADDRESS}`}
-            className="text-center text-sm text-white sm:hidden md:order-2 md:px-2 lg:block"
+            className="text-center text-sm text-white underline sm:hidden md:order-2 md:px-2 lg:block
+            xl:relative xl:left-[154px]
+
+            "
           >
             {DPL_MAIL_ADDRESS}
           </a>
@@ -157,7 +182,7 @@ const Footer = () => {
               height={31}
               alt="lucy logo"
             />
-            <p className="ml-4 text-xs text-white">
+            <p className="relative top-[1px] ml-4 text-xs text-white">
               All rights are reserved to DPL™ Inc.
             </p>
           </div>

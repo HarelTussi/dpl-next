@@ -5,6 +5,7 @@ import Header from "@ui/Header";
 import { QueryClient, QueryClientProvider } from "react-query";
 import RouteListener from "@components/RouteListener/RouteListener";
 import Script from "next/script";
+import Intercom from "@components/Intercom";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Header />
       <Component {...pageProps} />
       <Footer />
+      <Intercom />
     </QueryClientProvider>
   );
 }

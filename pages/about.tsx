@@ -8,11 +8,13 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 import GuestPage from "@components/Page/GuestPage";
+import CountUp from "react-countup";
+import { numberWithCommas } from "@utils/index";
 
 interface Props {
-  availableDiamonds: string;
-  suppliers: string;
-  totalValue: string;
+  availableDiamonds: number;
+  suppliers: number;
+  totalValue: number;
 }
 
 const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
@@ -27,8 +29,9 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
           <Heading type="Subhead 04" className="uppercase">
             Who We Are
           </Heading>
-          <Heading type="Heading 02">About DPL</Heading>
-          <h2 className="mb-4 text-3xl font-bold text-primary-100"></h2>
+          <Heading type="Heading 02" className="mb-2">
+            About DPL
+          </Heading>
           <Paragraph type="Paragraph 01" className="max-w-[750px]">
             The DPL was designed and built by a separate, dedicated team within
             Lucy Platforms, a leading developer of e-commerce platforms for the
@@ -48,19 +51,34 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
         {/* stats */}
         <Section className="stats block lg:flex lg:items-center lg:justify-between lg:px-14">
           <div className="mb-10 lg:mb-0">
-            <Heading type="Display 01">{availableDiamonds}</Heading>
+            <Heading type="Display 01">
+              <CountUp
+                end={availableDiamonds}
+                duration={1}
+                formattingFn={(n) => (n / 1000000).toFixed(1) + "M"}
+              />
+            </Heading>
             <Heading type="Subhead 01" className="font-normal">
               Available Diamonds
             </Heading>
           </div>
           <div className="mb-10 lg:mb-0">
-            <Heading type="Display 01">{suppliers}</Heading>
+            <Heading type="Display 01">
+              <CountUp
+                end={suppliers}
+                duration={1}
+                formattingFn={(n) => numberWithCommas(n)}
+              />
+            </Heading>
             <Heading type="Subhead 01" className="font-normal">
               Supplier
             </Heading>
           </div>
           <div className="mb-10 lg:mb-0">
-            <Heading type="Display 01">{totalValue}</Heading>
+            <Heading type="Display 01">
+              <CountUp prefix="$" suffix="M" end={totalValue} duration={1} />
+            </Heading>
+
             <Heading type="Subhead 01" className="font-normal">
               Total Value
             </Heading>

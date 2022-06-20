@@ -22,5 +22,5 @@ export const CLASSES = {
   "Subhead 02": "font-bold text-[21px] leading-[30px] md:leading-[50px]",
   "Subhead 03": "font-bold text-[19px] leading-[23px] md:leading-[50px]",
   "Subhead 04":
-    "font-bold text-[16px] leading-[23px] md:leading-[50px] text-primary-60",
+    "font-bold text-[16px] leading-[23px] md:leading-[40px] text-primary-60",
 };

@@ -3,9 +3,9 @@ import { GetDiamondsStats } from "types/api";
 
 export const getDiamondsStats = async () => {
   return {
-    availableDiamonds: "1.7M",
-    suppliers: "4,800",
-    totalValue: "$6.7B",
+    availableDiamonds: 1700000,
+    suppliers: 4800,
+    totalValue: 6.7,
   } as GetDiamondsStats;
   // const res = await fetch(`${NEXT_BASE_URL}/get-diamonds/stats`, {
   //   headers: {

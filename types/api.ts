@@ -1,7 +1,7 @@
 export interface GetDiamondsStats {
-  availableDiamonds: string;
-  suppliers: string;
-  totalValue: string;
+  availableDiamonds: number;
+  suppliers: number;
+  totalValue: number;
 }
 
 export interface IApiError {

@@ -16,8 +16,12 @@ const methodlogy = ({}: Props) => {
           <title>Methodology</title>
         </Head>
         <Section className="methodology">
-          <Heading type="Subhead 04">Methodology</Heading>
-          <Heading type="Heading 02">Introduction</Heading>
+          <Heading type="Subhead 04" className="uppercase">
+            Methodology
+          </Heading>
+          <Heading type="Heading 02" className="mb-2">
+            Introduction
+          </Heading>
           <Paragraph className="mb-5">
             The Diamond Price List - DPL™, created for the diamond industry, is
             the result of extensive research, involving a unique and vast set of

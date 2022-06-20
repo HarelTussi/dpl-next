@@ -7,10 +7,10 @@ import React from "react";
 const Hero = () => {
   return (
     <Section>
-      <Heading type="Subhead 03">DPL Mobile Application</Heading>
-      <Heading type="Heading 02" className="mt-2">
-        Introduction
+      <Heading type="Subhead 04" className="uppercase">
+        DPL Mobile Application
       </Heading>
+      <Heading type="Heading 02">Introduction</Heading>
       <Paragraph className="mt-2 mb-4">
         The DPL™ Diamond Calculator, available in the app stores for all Apple
         and Android devices, is the most transparent, objective and

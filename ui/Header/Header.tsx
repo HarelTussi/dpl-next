@@ -43,6 +43,15 @@ const HeaderLinks = () => {
   const openDropdown = useHeaderStore((state) => state.openDropdown);
   const closeDropdown = useHeaderStore((state) => state.closeDropdown);
 
+  const openDropdownWithoutDesktop = () => {
+    if (window && window.innerWidth >= 1024) return;
+    openDropdown();
+  };
+  const closeDropdownWithoutDesktop = () => {
+    if (window && window.innerWidth >= 1024) return;
+    closeDropdown();
+  };
+
   return (
     <div
       className={clsx(
@@ -53,11 +62,17 @@ const HeaderLinks = () => {
     >
       <div
         className="group relative border-b border-b-primary-40 
-py-6 lg:relative lg:border-none lg:p-0"
+py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0 
+        
+"
       >
         <div
           className="flex items-center justify-between lg:mr-8 lg:cursor-pointer lg:justify-start"
-          onClick={isDropdownOpen ? closeDropdown : openDropdown}
+          onClick={
+            isDropdownOpen
+              ? closeDropdownWithoutDesktop
+              : openDropdownWithoutDesktop
+          }
         >
           <p className="text-[21px] font-bold text-primary-100 lg:text-[15px]">
             Price List
@@ -80,7 +95,10 @@ py-6 lg:relative lg:border-none lg:p-0"
         </div>
         <div
           className={clsx(
-            "overflow-hidden pl-4 transition-all duration-300 lg:absolute lg:left-0 lg:whitespace-nowrap lg:bg-white lg:p-0 lg:group-hover:h-[166px]",
+            `w-full overflow-hidden pl-4 transition-all duration-300 
+            lg:absolute lg:left-0 lg:whitespace-nowrap lg:bg-white lg:p-0 lg:group-hover:h-[136px]
+            
+            `,
             isDropdownOpen ? "h-[166px]" : "h-0"
           )}
         >

@@ -9,7 +9,7 @@ const YourDiamonds = () => {
     <Section>
       <div
         className=" items-center border border-primary-30
-        p-8 md:flex
+        bg-white p-8 md:flex
       "
       >
         <div className="md:mr-8 md:flex-1">

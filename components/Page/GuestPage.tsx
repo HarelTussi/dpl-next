@@ -9,7 +9,7 @@ const GuestPage = ({ children, withGridLines = true }: Props) => {
   return (
     <div
       className={clsx(
-        "relative flex min-h-full flex-col pt-[120px] pb-[80px] md:min-h-0 lg:min-h-0 xl:min-h-full"
+        "relative flex min-h-full flex-col pt-[120px]  pb-[80px] md:min-h-0 lg:min-h-0 xl:min-h-full xl:pt-[180px]"
       )}
     >
       <div className="relative z-30 flex min-h-full flex-1 flex-col">

@@ -8,6 +8,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { DPL_MAIL_ADDRESS } from "config";
+import useIntercomActions from "@hooks/useIntercomActions";
 
 const fields = [
   {
@@ -66,9 +67,11 @@ const ContactUs = () => {
     onSubmit: () => {},
   });
 
+  const { openIntercom } = useIntercomActions();
+
   return (
     <>
-      <Heading type="Subhead 03" className="uppercase">
+      <Heading type="Subhead 04" className="uppercase ">
         Support
       </Heading>
       <Section className="xl:flex">
@@ -113,15 +116,24 @@ const ContactUs = () => {
           </Heading>
           <Heading type="Subhead 03">Talk To Us Personally</Heading>
           <Paragraph className="mb-8">
-            Looking for human help? call us at 073-3744690
+            Looking for human help? call us at{" "}
+            <a className="underline" href="tel:+972733744690">
+              073-3744690
+            </a>
           </Paragraph>
-          <Heading type="Subhead 03">Send Us An Email </Heading>
+          <Heading type="Subhead 03">Send Us An Email</Heading>
           <Paragraph className="mb-8">
-            Contact DPL™ team at: <a>{DPL_MAIL_ADDRESS}</a>{" "}
+            Contact DPL™ team at:{" "}
+            <a href={`mailto:${DPL_MAIL_ADDRESS}`} className="underline">
+              {DPL_MAIL_ADDRESS}
+            </a>{" "}
           </Paragraph>
           <Heading type="Subhead 03">Chat With Us </Heading>
           <Paragraph className="mb-8">
-            Chat with us by <a>clicking here. </a>{" "}
+            Chat with us by{" "}
+            <button onClick={openIntercom} className="underline">
+              clicking here.{" "}
+            </button>{" "}
           </Paragraph>
         </div>
       </Section>
