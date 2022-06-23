@@ -5,6 +5,7 @@ import Container from "@ui/Container";
 import { DPL_MAIL_ADDRESS, INISGHTS_CLIENT_URL } from "config";
 import { useFormik } from "formik";
 import { useJoinNewsletter } from "features/newsletter/mutations";
+import AppStoreLink from "@components/AppStoreLink";
 
 const Footer = () => {
   const sections = [
@@ -145,32 +146,17 @@ const Footer = () => {
           >
             {DPL_MAIL_ADDRESS}
           </a>
-          <div className="mx-auto my-6 flex items-center md:order-3 md:flex-1 md:justify-end">
-            <a
-              className="mr-2"
-              href="https://apps.apple.com/il/app/lucy-calculator/id1522203901"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                src="/assets/images/appleStoreWhite.svg"
-                width={140}
-                height={50}
-                alt="apple store"
-              />
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.DiamondPrice.DiamondPrice"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                src="/assets/images/googlePlayWhite.svg"
-                width={140}
-                height={50}
-                alt="google play store"
-              />
-            </a>
+          <div className="my-6 flex w-full md:order-4 md:w-fit md:flex-1 md:justify-end">
+            <AppStoreLink
+              type="apple"
+              color="white"
+              className="mr-2 h-[58px] flex-1 md:h-[50px] md:w-[140px] md:flex-none"
+            />
+            <AppStoreLink
+              type="google"
+              color="white"
+              className="h-[58px] flex-1 md:h-[50px] md:w-[140px] md:flex-none"
+            />
           </div>
           <div className="flex items-center justify-center md:order-1">
             <p className="mr-2 whitespace-nowrap text-xs font-bold text-white">

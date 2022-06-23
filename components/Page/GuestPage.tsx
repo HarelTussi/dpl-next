@@ -23,6 +23,7 @@ const GuestPage = ({ children, withGridLines = true }: Props) => {
             <div className="hidden border-l border-l-primary-20"></div>
             <div className="hidden border-l border-l-primary-20 lg:block"></div>
             <div className="hidden border-l border-l-primary-20 lg:block"></div>
+            <div className="hidden border-l border-l-primary-20 lg:block"></div>
             <div className="border-l border-r border-l-primary-20 border-r-primary-20"></div>
           </Container>
         </div>

@@ -18,9 +18,9 @@ export const CLASSES = {
     "text-[40px] font-bold leading-[53px] text-primary-100 md:text-[48px] md:leading-[60px]",
   "Heading 02":
     "text-[32px] font-bold leading-[40px] text-primary-100 md:text-[32px] md:leading-[40px]",
-  "Subhead 01": "font-bold text-[24px] leading-[30px]",
+  "Subhead 01": "font-bold text-[24px] leading-[35px]",
   "Subhead 02": "font-bold text-[21px] leading-[30px] md:leading-[50px]",
   "Subhead 03": "font-bold text-[19px] leading-[23px] md:leading-[50px]",
   "Subhead 04":
-    "font-bold text-[16px] leading-[23px] md:leading-[40px] text-primary-60",
+    "font-bold text-[16px] leading-[36px] md:leading-[40px] text-primary-60",
 };

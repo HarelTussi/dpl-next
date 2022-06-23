@@ -34,7 +34,7 @@ const DataScience = () => {
           <div
             key={index}
             className={[
-              `mb-6`,
+              `mb-10`,
               "md:max-w-[400px]",
               "lg:flex lg:max-w-full lg:items-center lg:gap-x-8 xl:gap-x-32",
               index === 1 ? "lg:flex-row-reverse" : "",

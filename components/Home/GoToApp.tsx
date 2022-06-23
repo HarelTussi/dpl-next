@@ -6,6 +6,7 @@ import AppStore from "../../assets/apple-store.svg";
 import GoogleStore from "../../assets/google-play.svg";
 import ChevronRight from "../../assets/chevron-right.svg";
 import Image from "next/image";
+import AppStoreLink from "@components/AppStoreLink";
 
 const steps = [
   { step: "24 hour access to the most up to date price list" },
@@ -31,7 +32,7 @@ const GoToApp = () => {
                   index !== steps.length - 1 ? "h-[80px]" : "",
                 ].join(" ")}
               >
-                <span className="absolute -left-[10px] top-[2px] h-[20px] w-[20px] rounded-full bg-black"></span>
+                <span className="absolute -left-[6px] top-[5px] h-[15px] w-[15px] rounded-full bg-black"></span>
                 <Paragraph className="-mt-[8 px] relative -top-[1px] max-w-[290px]">
                   {step}
                 </Paragraph>
@@ -49,27 +50,15 @@ const GoToApp = () => {
         <div className="relative mt-10 h-[500px] md:max-w-[300px] lg:mt-0">
           <Image src="/assets/images/iphone.svg" layout="fill" alt="DPL App" />
         </div>
-        <div
-          className="-mt-4 flex items-center justify-between md:max-w-[400px] 
-        lg:max-w-[330px]  
-        "
-        >
-          <a
-            href="https://apps.apple.com/il/app/lucy-calculator/id1522203901"
-            target="_blank"
-            rel="noreferrer"
-            className="flex-1"
-          >
-            <AppStore />
-          </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.DiamondPrice.DiamondPrice"
-            target="_blank"
-            rel="noreferrer"
-            className="flex-1"
-          >
-            <GoogleStore />
-          </a>
+        <div className="flex items-center justify-center md:justify-start">
+          <AppStoreLink
+            type="apple"
+            className="mr-2 h-[58px] flex-1 md:h-[50px] md:w-[140px] md:flex-none "
+          />
+          <AppStoreLink
+            type="google"
+            className="h-[58px] flex-1 md:h-[50px] md:w-[140px] md:flex-none"
+          />
         </div>
       </div>
     </Section>

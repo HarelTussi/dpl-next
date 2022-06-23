@@ -4,8 +4,12 @@ import React from "react";
 const AppStoreLink = ({
   className,
   type,
+  color = "black",
   ...rest
-}: React.HTMLAttributes<HTMLAnchorElement> & { type: "google" | "apple" }) => {
+}: React.HTMLAttributes<HTMLAnchorElement> & {
+  type: "google" | "apple";
+  color?: "black" | "white";
+}) => {
   const href =
     type === "google"
       ? "https://play.google.com/store/apps/details?id=com.DiamondPrice.DiamondPrice"
@@ -14,7 +18,8 @@ const AppStoreLink = ({
   return (
     <a
       className={clsx(
-        "flex items-center justify-center rounded-md bg-primary-100",
+        "flex items-center justify-center rounded-md ",
+        color === "black" ? "bg-primary-100" : "bg-white",
         className
       )}
       href={href}
@@ -22,12 +27,24 @@ const AppStoreLink = ({
       rel="noreferrer"
       {...rest}
     >
-      {type === "google" ? <GoogleIcon /> : <AppleIcon />}
+      {type === "google" && <GoogleIcon />}
+      {type === "apple" &&
+        (color === "black" ? <WhiteAppleIcon /> : <BlackAppleIcon />)}
       <div className="ml-2">
-        <span className="block text-xs leading-[1] text-white">
+        <span
+          className={clsx(
+            "block text-xs leading-[1]",
+            color === "black" ? "text-white" : "text-black"
+          )}
+        >
           {type === "google" ? "Get it On" : "Download on the"}
         </span>
-        <span className="mt-[2px] block text-sm font-bold leading-[1] text-white">
+        <span
+          className={clsx(
+            "mt-[2px] block text-sm font-bold leading-[1] ",
+            color === "black" ? "text-white" : "text-black"
+          )}
+        >
           {type === "google" ? "Google Play" : "App Store"}
         </span>
       </div>
@@ -210,7 +227,7 @@ const GoogleIcon = () => {
   );
 };
 
-const AppleIcon = () => {
+const WhiteAppleIcon = () => {
   return (
     <svg
       width="20"
@@ -226,6 +243,27 @@ const AppleIcon = () => {
       <path
         d="M13.6208 3.84713C14.5369 2.77343 14.9882 1.39335 14.8789 0C13.4793 0.143521 12.1864 0.796601 11.2579 1.82911C10.35 2.83793 9.87749 4.19372 9.96681 5.53382C11.3669 5.54789 12.7434 4.91252 13.6208 3.84713Z"
         fill="white"
+      />
+    </svg>
+  );
+};
+
+const BlackAppleIcon = () => {
+  return (
+    <svg
+      width="21"
+      height="26"
+      viewBox="0 0 21 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17.4051 13.6734C17.4302 11.7235 18.4774 9.8784 20.1387 8.85706C19.0907 7.36029 17.3353 6.41129 15.509 6.35415C13.5611 6.14969 11.6726 7.51976 10.68 7.51976C9.66818 7.51976 8.13988 6.37445 6.49416 6.40831C4.34902 6.47762 2.34922 7.69722 1.30557 9.57264C-0.93787 13.4568 0.735534 19.1652 2.88456 22.3049C3.95976 23.8423 5.21637 25.5596 6.86061 25.4987C8.4696 25.432 9.07053 24.4727 11.0127 24.4727C12.9369 24.4727 13.5007 25.4987 15.1783 25.46C16.9048 25.432 17.9926 23.9158 19.0301 22.3638C19.8026 21.2683 20.3971 20.0576 20.7914 18.7765C18.7625 17.9183 17.4075 15.8764 17.4051 13.6734Z"
+        fill="#0A0A0A"
+      />
+      <path
+        d="M14.2364 4.28935C15.1778 3.15927 15.6415 1.70674 15.5292 0.240234C14.091 0.39129 12.7625 1.07866 11.8084 2.16538C10.8755 3.22717 10.3899 4.65414 10.4817 6.06459C11.9205 6.07941 13.3348 5.41067 14.2364 4.28935Z"
+        fill="#0A0A0A"
       />
     </svg>
   );
