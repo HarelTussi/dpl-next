@@ -11,6 +11,7 @@ import { clsx } from "@utils/index";
 import { useHeaderStore } from "stores/header";
 import { INISGHTS_CLIENT_URL } from "config";
 import GetTheList from "@components/GetTheList";
+import useMixpanel from "@hooks/useMixpanel";
 
 const Header = () => {
   const isDrawerOpen = useHeaderStore((state) => state.isDrawerOpen);
@@ -39,6 +40,7 @@ const Header = () => {
 };
 
 const HeaderLinks = () => {
+  const { track } = useMixpanel();
   const isDropdownOpen = useHeaderStore((state) => state.isDropdownOpen);
   const openDropdown = useHeaderStore((state) => state.openDropdown);
   const closeDropdown = useHeaderStore((state) => state.closeDropdown);
@@ -133,10 +135,11 @@ py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0
         </div>
       </div>
       <div className="lg:flex lg:whitespace-nowrap">
-        <a
-          href={INISGHTS_CLIENT_URL}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          onClick={() => {
+            track("InsightsEntrance");
+            window && window.open(INISGHTS_CLIENT_URL);
+          }}
           className={clsx(
             `block border-b border-b-primary-40 py-6 text-[21px] font-bold text-primary-100
     lg:mr-8 lg:border-none lg:p-0 lg:text-[15px]
@@ -144,7 +147,7 @@ py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0
           )}
         >
           Insights
-        </a>
+        </button>
         {[
           { href: "/about", label: "About us" },
           { href: "/support", label: "Support" },
