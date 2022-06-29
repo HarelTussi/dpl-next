@@ -49,7 +49,10 @@ const validationSchema = yup.object().shape({
     .string()
     .email("Please provide a valid email address")
     .required("Email is required"),
-  message: yup.string().required("Contact message is required"),
+  message: yup
+    .string()
+    .required("Contact message is required")
+    .max(180, "180 characters exceeded"),
   companyName: yup.string().required("Company name is required"),
   phoneNumber: yup.string().required("Phone number is required"),
 });
@@ -68,6 +71,8 @@ const ContactUs = () => {
   });
 
   const { openIntercom } = useIntercomActions();
+
+  const charLeft = 180 - formik.values.message.length;
 
   return (
     <>
@@ -98,12 +103,13 @@ const ContactUs = () => {
                     labelClassName="block mb-2"
                     touched={formik.touched[field.name]}
                     error={formik.errors[field.name]}
+                    maxLength={180}
                   />
                 );
               })}
             </div>
             <Paragraph className="my-3 text-right">
-              <b>{180 - formik.values.message.length}</b> characters left:
+              characters left: <b>{charLeft < 0 ? 0 : charLeft}</b>
             </Paragraph>
             <Button type="submit" className="h-[56px] w-full">
               Send
