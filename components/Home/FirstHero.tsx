@@ -1,3 +1,4 @@
+import useMixpanel from "@hooks/useMixpanel";
 import Heading from "@ui/Heading";
 import Paragraph from "@ui/Paragraph";
 import Section from "@ui/Section";
@@ -6,6 +7,12 @@ import Image from "next/image";
 import React from "react";
 
 const FirstHero = () => {
+  const { track } = useMixpanel();
+  const onTakeMeThere = () => {
+    track("InsightsEntranceStrip");
+    window && window.open(INISGHTS_CLIENT_URL);
+  };
+
   return (
     <Section className="lg:flex">
       <div>
@@ -24,15 +31,13 @@ const FirstHero = () => {
           business inventory.
         </Paragraph>
         <div className="my-6 grid gap-y-4 md:max-w-md md:grid-cols-2 md:gap-x-4">
-          <a
-            target="_blank"
-            href={INISGHTS_CLIENT_URL}
-            rel="noreferrer"
+          <button
+            onClick={onTakeMeThere}
             className="pointer flex h-[56px] w-full items-center justify-center
              !rounded-none bg-black font-mullish text-white hover:bg-primary-90 active:bg-primary-90 disabled:bg-primary-40 disabled:text-primary-60"
           >
             Take me there
-          </a>
+          </button>
           <a
             target="_blank"
             href="https://calendly.com/dpl-insight/dpl-insight-demo"
