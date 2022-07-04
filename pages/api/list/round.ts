@@ -8,8 +8,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { id } = req.query;
-  const dir = path.join(process.cwd(), "public", "list", `${id}.pdf`);
+  const dir = path.join(process.cwd(), "public", "list", `round.pdf`);
   const [err, file] = await asyncCatch(fs.readFile(dir));
   //@ts-ignore
   if (err) return res.status(500).json({ message: "list not found" });
