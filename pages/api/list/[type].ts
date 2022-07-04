@@ -9,6 +9,9 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { type } = req.query;
+  res.status(200).send({ hello: true });
+  return;
+
   const dir = path.join(process.cwd(), "public", "list", `${type}.pdf`);
   const [err, file] = await asyncCatch(fs.readFile(dir));
   //@ts-ignore
