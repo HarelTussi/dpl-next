@@ -18,7 +18,7 @@ const stepAnimation: MotionProps = {
 const Onboarding = (props: Props) => {
   const [isOpen, setIsOpen] = useState(true);
   const [step, setStep] = useState(1);
-
+  const test = "";
   return (
     <Modal isOpen={isOpen} closeModal={() => setIsOpen(false)}>
       <Container className={styles.container}>
