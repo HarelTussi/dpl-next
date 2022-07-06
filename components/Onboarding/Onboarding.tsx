@@ -41,7 +41,7 @@ const Onboarding = (props: Props) => {
             <button
               className={styles.submit}
               onClick={() =>
-                setStep((prev) => (prev + 1 < 5 ? prev + 1 : prev))
+                setStep((prev) => (prev + 1 <= 5 ? prev + 1 : prev))
               }
             >
               {step === 1 && <>Let&apos;s Go</>}
