@@ -40,14 +40,18 @@ const Onboarding = (props: Props) => {
           <div className={styles.actionsContainer}>
             <button
               className={styles.submit}
-              onClick={() => setStep((prev) => prev + 1)}
+              onClick={() =>
+                setStep((prev) => (prev + 1 < 5 ? prev + 1 : prev))
+              }
             >
               {step === 1 && <>Let&apos;s Go</>}
               {step >= 2 && step <= 5 && <>Next</>}
             </button>
             <button
               className={styles.skip}
-              onClick={() => setStep((prev) => prev - 1)}
+              onClick={() =>
+                setStep((prev) => (prev - 1 < 1 ? prev : prev - 1))
+              }
             >
               Skip
             </button>
