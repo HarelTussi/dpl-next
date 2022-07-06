@@ -10,6 +10,7 @@ import DataScience from "@components/Home/DataScience";
 import GoToApp from "@components/Home/GoToApp";
 import GuestPage from "@components/Page/GuestPage";
 import FirstHero from "@components/Home/FirstHero";
+import Onboarding from "@components/Onboarding";
 
 interface Props {
   availableDiamonds: string;
@@ -50,6 +51,7 @@ Props) => {
       <Head>
         <title>The Diamond Price List</title>
       </Head>
+      <Onboarding />
       <Container>
         <FirstHero />
         {/* <Hero stats={stats} /> */}
