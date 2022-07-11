@@ -104,7 +104,7 @@ py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0
             isDropdownOpen ? "h-[166px]" : "h-0"
           )}
         >
-          <a
+          {/* <a
             target="_blank"
             href={INISGHTS_CLIENT_URL + "/pricelist"}
             className="block pt-6 text-[21px] font-normal text-primary-100
@@ -113,7 +113,7 @@ py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0
             rel="noreferrer"
           >
             Get The List
-          </a>
+          </a> */}
           <Link href="/calculator">
             <a
               className="block pt-6 text-[21px] font-normal text-primary-100
