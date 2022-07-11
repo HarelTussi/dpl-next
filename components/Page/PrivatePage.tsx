@@ -8,7 +8,7 @@ type Props = {
   withGridLines?: boolean;
 };
 
-const PrivatePage = ({ children, withGridLines = true }: Props) => {
+const PrivatePage = ({ children, withGridLines = false }: Props) => {
   const { data: user, isLoading: isLoadingUser } = useUser();
   const router = useRouter();
   if (isLoadingUser) {
