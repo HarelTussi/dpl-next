@@ -10,6 +10,12 @@ import DataScience from "@components/Home/DataScience";
 import GoToApp from "@components/Home/GoToApp";
 import GuestPage from "@components/Page/GuestPage";
 import FirstHero from "@components/Home/FirstHero";
+import Hero from "@components/Home/new/Hero";
+import Cards from "@components/Home/new/Cards";
+import Federation from "@components/Home/new/Federation";
+import Industry from "@components/Home/new/Industry";
+import PriceList from "@components/Home/new/PriceList";
+import Quote from "@components/Home/new/Quote";
 
 interface Props {
   availableDiamonds: string;
@@ -51,16 +57,24 @@ Props) => {
         <title>The Diamond Price List</title>
       </Head>
       <Container>
-        <FirstHero />
+        {/* <FirstHero /> */}
         {/* <Hero stats={stats} /> */}
         {/* <Benefits
           benefits={benefits}
           className="grid gap-y-4 lg:grid lg:grid-cols-3 lg:gap-x-4"
         /> */}
-        <NeverSeenBefore />
-        <YourDiamonds />
-        <GoToApp />
-        <DataScience />
+        {/* <NeverSeenBefore /> */}
+        {/* <YourDiamonds /> */}
+        {/* <GoToApp /> */}
+        {/* <DataScience /> */}
+
+        {/* New */}
+        <Hero />
+        <Cards />
+        <Federation />
+        <Industry/>
+        <PriceList />
+        <Quote />
       </Container>
     </GuestPage>
   );
