@@ -9,17 +9,17 @@ import AppStoreLink from "@components/AppStoreLink";
 
 const Footer = () => {
   const sections = [
-    {
-      title: "PRODUCT",
-      links: [
-        {
-          label: "Price List",
-          outside: true,
-          href: INISGHTS_CLIENT_URL + "/pricelist",
-        },
-        { label: "DPL Calculator", href: "/calculator", outside: false },
-      ],
-    },
+    // {
+    //   title: "PRODUCT",
+    //   links: [
+    //     {
+    //       label: "Price List",
+    //       outside: true,
+    //       href: INISGHTS_CLIENT_URL + "/pricelist",
+    //     },
+    //     { label: "DPL Calculator", href: "/calculator", outside: false },
+    //   ],
+    // },
     {
       title: "ABOUT",
       links: [

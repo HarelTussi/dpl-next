@@ -135,19 +135,19 @@ py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0
         </div>
       </div>
       <div className="lg:flex lg:whitespace-nowrap">
-        <button
+        {/* <button
           onClick={() => {
             track("InsightsEntrance");
             window && window.open(INISGHTS_CLIENT_URL);
           }}
           className={clsx(
             `block border-b border-b-primary-40 py-6 text-[21px] font-bold text-primary-100
-    lg:mr-8 lg:border-none lg:p-0 lg:text-[15px]
+    lg:mr-8 lg:border-none lg:p-0 lg:text-[15px] 
   `
           )}
         >
           Insights
-        </button>
+        </button> */}
         {[
           { href: "/about", label: "About us" },
           { href: "/support", label: "Support" },
@@ -206,7 +206,7 @@ const HeaderLeft = ({}) => {
 
 const HeaderGetList = () => {
   return (
-    <div className="lg:flex lg:flex-1 lg:items-center lg:justify-end">
+    <div className="pointer-events-none opacity-0 lg:flex lg:flex-1 lg:items-center lg:justify-end">
       <GetTheList className="my-8 h-[56px] w-full lg:m-0 lg:h-10 lg:w-[128px]" />
     </div>
   );

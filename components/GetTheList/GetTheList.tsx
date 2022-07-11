@@ -10,7 +10,8 @@ const GetTheList = ({
     <a
       className={clsx(
         "pointer flex items-center justify-center bg-black font-mullish text-white shadow-sm hover:bg-primary-90 active:bg-primary-90 disabled:bg-primary-40 disabled:text-primary-60",
-        className
+        className,
+        "!hidden"
       )}
       href={INISGHTS_CLIENT_URL + "/pricelist"}
       target="_blank"

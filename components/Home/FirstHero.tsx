@@ -32,9 +32,10 @@ const FirstHero = () => {
         </Paragraph>
         <div className="my-6 grid gap-y-4 md:max-w-md md:grid-cols-2 md:gap-x-4">
           <button
+            disabled
             onClick={onTakeMeThere}
-            className="pointer flex h-[56px] w-full items-center justify-center
-             !rounded-none bg-black font-mullish text-white hover:bg-primary-90 active:bg-primary-90 disabled:bg-primary-40 disabled:text-primary-60"
+            className="pointer flex !hidden h-[56px] w-full items-center
+             justify-center !rounded-none bg-black font-mullish text-white hover:bg-primary-90 active:bg-primary-90 disabled:bg-primary-40 disabled:text-primary-60"
           >
             Take me there
           </button>
