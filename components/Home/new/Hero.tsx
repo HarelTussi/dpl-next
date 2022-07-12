@@ -37,9 +37,7 @@ const Hero = () => {
         business
       </Heading>
       <Paragraph className="mx-auto mt-2 flex w-full max-w-[835px] items-center justify-center text-center text-primary-80">
-        Get a live data analytics view of the industry’s supply, demand, and
-        pricing data of polished diamonds, as well as for your own business
-        inventory
+      Get a live data analytics view of the industry’s prices and supply data of polished diamonds, as well as for your own business inventory
       </Paragraph>
       <div className="mx-auto mt-6 grid gap-y-2 md:max-w-md md:grid-cols-2 md:gap-x-4">
         <button
