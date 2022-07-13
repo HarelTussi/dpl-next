@@ -73,8 +73,8 @@ Props) => {
         <Cards />
         <Federation />
         {/* <Industry/> */}
-        <PriceList />
         <Quote />
+        <PriceList />
       </Container>
     </GuestPage>
   );

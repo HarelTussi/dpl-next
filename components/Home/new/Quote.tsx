@@ -8,10 +8,12 @@ const Quote = () => {
           type="Display 03"
           className="font-poppins flex text-center text-[21px] md:text-[27px] font-bold text-primary-80 max-w-[800px] mx-auto "
         >
-          “DPL is pretty incredible and much needed in the diamond industry. The technology driving it is phenomenal and I really believe they have something here.” 
+          “Our industry needs greater, faster data analysis.
+Adding visual results makes it so much easier and intuitive to understand and take action. I like the solution created by DPL Insights and can definitely see how it can impact the industry for the better.”
+
         </Heading>
         <Paragraph className="mx-auto mt-[22px] flex w-full items-center justify-center !md:text-[21px] !text-[14px] text-center text-primary-80">
-        -Haygo Demir, DGI Group
+        Howard Hauben, President & CEO Centurion Jewelry
       </Paragraph>
   </Section>;
 };
