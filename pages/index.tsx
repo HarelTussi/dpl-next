@@ -72,7 +72,7 @@ Props) => {
         <Hero />
         <Cards />
         <Federation />
-        <Industry/>
+        {/* <Industry/> */}
         <PriceList />
         <Quote />
       </Container>

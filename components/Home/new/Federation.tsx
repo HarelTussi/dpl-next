@@ -7,19 +7,19 @@ import CountUp from "react-countup";
 
 const data = [
   {
-    content: 1.7,
+    content: 1.9,
     label: "Available Diamonds",
     prefix: "+",
     suffix: "M",
   },
   {
-    content: 6.9,
+    content: 7.1,
     label: "Total Value",
     prefix: "$",
     suffix: "B",
   },
   {
-    content: 4,
+    content: 4.8,
     label: "Suppliers",
     prefix: "+",
     suffix: "K",
@@ -30,19 +30,19 @@ const Federation = () => {
   return (
     <Section className="flex-col lg:flex">
       <div className="flex w-full flex-col items-center justify-center md:flex-row">
-        <div className="relative h-[80px] w-[140px]">
+        {/* <div className="relative h-[80px] w-[140px]">
           <Image
             src="/assets/images/federation.svg"
             layout="fill"
             alt="DPL insights"
             className="h-full w-full"
           />
-        </div>
+        </div> */}
         <Heading
           type="Display 03"
           className="font-poppins flex text-center text-[21px] font-bold text-primary-80 md:text-[34px]"
         >
-          Trusted By The World Federation Of Diamond Bourses
+          DPL Insights is connected to multiple data sources of natural polished diamonds
         </Heading>
       </div>
       <div className="flex flex-col justify-center gap-8 md:flex-row md:gap-[70px]">
@@ -62,10 +62,10 @@ const Federation = () => {
           </div>
         ))}
       </div>
-      <Paragraph className="mx-auto mt-6 w-full max-w-[650px] text-center !text-sm !leading-[30px] text-primary-80">
+      {/* <Paragraph className="mx-auto mt-6 w-full max-w-[650px] text-center !text-sm !leading-[30px] text-primary-80">
         DPL Insights is connected to multiple data sources as well as the
         world&lsquo;s largest data set of polished diamonds - GET-Diamonds
-      </Paragraph>
+      </Paragraph> */}
     </Section>
   );
 };
