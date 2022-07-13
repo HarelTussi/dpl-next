@@ -52,9 +52,9 @@ module.exports = {
         primary: {
           100: " #0a0a0a",
           90: "#424242",
-          80: "#616161",
-          70: "#757575",
-          60: "#9e9e9e",
+          80: "#182D5D",
+          70: "#006DFF",
+          60: "#ECF4FF",
           50: "#e0e0e0",
           40: "#e0e0e0",
           30: "#ededed",
@@ -97,6 +97,10 @@ module.exports = {
       },
       screens: {
         "2xl": "1440px",
+      },
+      boxShadow: {
+        'card': '0px 5px 14px rgba(80, 80, 80, 0.05)',
+        "button-hover": "-9px 11px 15px rgba(0, 109, 255, 0.2)",
       },
     },
   },
