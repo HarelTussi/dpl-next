@@ -72,9 +72,12 @@ const Industry = () => {
           </div>)}
       </div> */}
 
-        <div className="mt-[40px] md:mt-[60px] flex w-full gap-2 overflow-x-auto md:hidden">
-          {logos.map((logo) => (
-            <div className="relative flex h-full w-full items-center justify-center">
+        <div className="mt-[40px] flex w-full gap-2 overflow-x-auto md:mt-[60px] md:hidden">
+          {logos.map((logo, idx) => (
+            <div
+              className="relative flex h-full w-full items-center justify-center"
+              key={idx}
+            >
               <Image
                 src={logo.path}
                 layout="fixed"

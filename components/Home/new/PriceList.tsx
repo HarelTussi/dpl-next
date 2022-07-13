@@ -4,10 +4,9 @@ import Section from "@ui/Section";
 import { INISGHTS_LIST_URL } from "config";
 import Image from "next/image";
 const PriceList = () => {
-
-    const onTakeMeThere = () => {
-        window && window.open(INISGHTS_LIST_URL);
-    }
+  const onTakeMeThere = () => {
+    window && window.open(INISGHTS_LIST_URL);
+  };
 
   return (
     <Section className="flex-col lg:flex ">
@@ -29,22 +28,22 @@ const PriceList = () => {
         features and time saving calculations.
       </Paragraph>
       <button
-            onClick={onTakeMeThere}
-            className="pointer flex h-[52px] w-full md:max-w-[190px] items-center justify-center mt-4 mx-auto
-             !rounded-[6px] bg-primary-70 font-mullish text-white disabled:bg-primary-40 disabled:text-primary-60 active:bg-primary-80 hover:shadow-button-hover transition-all duration-300 ease-linear"
-          >
-            Get the list
-        </button>
-        <div className="relative block w-full h-fit md:w-[847px] mx-auto mt-8">
+        onClick={onTakeMeThere}
+        className="pointer mx-auto mt-4 flex h-[52px] w-full items-center justify-center !rounded-[6px]
+             bg-primary-70 font-mullish text-white transition-all duration-300 ease-linear hover:shadow-button-hover active:bg-primary-80 disabled:bg-primary-40 disabled:text-primary-60 md:max-w-[190px]"
+      >
+        Get the list
+      </button>
+      <div className="relative mx-auto mt-8 block h-fit w-full md:w-[847px]">
         <Image
-            src="/assets/images/pricelist-image.png"
-            layout="responsive"
-            alt="DPL insights"
-            className="h-full w-full"
-            width={847}
-            height={511}
-          />
-        </div>
+          src="/assets/images/pricelist-image.png"
+          layout="responsive"
+          alt="DPL insights"
+          className="h-full w-full"
+          width={847}
+          height={511}
+        />
+      </div>
     </Section>
   );
 };
