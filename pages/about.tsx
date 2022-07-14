@@ -19,7 +19,7 @@ interface Props {
 
 const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
   return (
-    <GuestPage>
+    <GuestPage classNames="bg-[url('/assets/images/guest-bg.png')] lg:bg-cover">
       <Head>
         <title>About Us</title>
       </Head>
@@ -50,33 +50,33 @@ const about = ({ availableDiamonds, suppliers, totalValue }: Props) => {
         </Section>
         {/* stats */}
         <Section className="stats block lg:flex lg:items-center lg:justify-between lg:px-14">
-          <div className="mb-10 lg:mb-0">
+          <div className="mb-10 lg:mb-0 lg:flex lg:flex-col lg:items-center">
             <Heading type="Display 01">
               <CountUp
                 end={availableDiamonds}
                 duration={1}
-                formattingFn={(n) => (n / 1000000).toFixed(1) + "M"}
+                formattingFn={(n) => "+" + (n / 1000000).toFixed(1) + "M"}
               />
             </Heading>
             <Heading type="Subhead 01" className="font-normal">
               Available Diamonds
             </Heading>
           </div>
-          <div className="mb-10 lg:mb-0">
+          <div className="mb-10 lg:mb-0 lg:flex lg:flex-col lg:items-center">
             <Heading type="Display 01">
               <CountUp
                 end={suppliers}
                 duration={1}
-                formattingFn={(n) => numberWithCommas(n)}
+                formattingFn={(n) => "+" + (n / 1000).toFixed(1) + "K"}
               />
             </Heading>
             <Heading type="Subhead 01" className="font-normal">
               Supplier
             </Heading>
           </div>
-          <div className="mb-10 lg:mb-0">
+          <div className="mb-10 lg:mb-0 lg:flex lg:flex-col lg:items-center">
             <Heading type="Display 01">
-              <CountUp prefix="$" suffix="M" end={totalValue} duration={1} />
+              <CountUp prefix="$" suffix="B" end={totalValue} duration={1} />
             </Heading>
 
             <Heading type="Subhead 01" className="font-normal">

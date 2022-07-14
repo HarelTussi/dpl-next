@@ -3,7 +3,7 @@ import { GetDiamondsStats } from "types/api";
 
 export const getDiamondsStats = async () => {
   return {
-    availableDiamonds: 1700000,
+    availableDiamonds: 1900000,
     suppliers: 4800,
     totalValue: 6.7,
   } as GetDiamondsStats;
