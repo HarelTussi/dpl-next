@@ -3,13 +3,15 @@ import { clsx } from "@utils/index";
 type Props = {
   children: React.ReactNode;
   withGridLines?: boolean;
+  classNames?: string;
 };
 
-const GuestPage = ({ children, withGridLines = false }: Props) => {
+const GuestPage = ({ children, withGridLines = false, classNames }: Props) => {
   return (
     <div
       className={clsx(
-        "relative overflow-hidden flex min-h-full flex-col pt-[120px]  md:min-h-0 lg:min-h-0 xl:min-h-full xl:pt-[180px] bg-[url('/assets/images/guest-bg.png')] bg-no-repeat md:bg-contain bg-cover"
+        "relative overflow-hidden flex min-h-full flex-col pt-[120px]  md:min-h-0 lg:min-h-0 xl:min-h-full xl:pt-[180px]  bg-no-repeat md:bg-contain bg-cover",
+        classNames
       )}
     >
       <div className="relative z-30 flex min-h-full flex-1 flex-col">

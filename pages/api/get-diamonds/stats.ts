@@ -8,9 +8,9 @@ const errorData = {
 };
 
 const successData = {
-  availableDiamonds: "1.6M",
+  availableDiamonds: "1.9M",
   suppliers: "4,800",
-  totalValue: "6.7B$",
+  totalValue: "7.1B$",
 };
 
 export default function handler(

@@ -52,7 +52,7 @@ Props) => {
   // ];
 
   return (
-    <GuestPage>
+    <GuestPage classNames="bg-[url('/assets/images/guest-bg.png')]">
       <Head>
         <title>The Diamond Price List</title>
       </Head>
@@ -69,6 +69,7 @@ Props) => {
         {/* <DataScience /> */}
 
         {/* New */}
+     
         <Hero />
         <Cards />
         <Federation />

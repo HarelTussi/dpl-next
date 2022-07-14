@@ -7,7 +7,7 @@ import GuestPage from "@components/Page/GuestPage";
 
 const Support = () => {
   return (
-    <GuestPage>
+    <GuestPage classNames="bg-[url('/assets/images/guest-bg.png')]">
       <Head>
         <title>Support</title>
       </Head>
