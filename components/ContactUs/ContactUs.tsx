@@ -9,6 +9,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { DPL_MAIL_ADDRESS } from "config";
 import useIntercomActions from "@hooks/useIntercomActions";
+import { useContactMe } from "features/contact/mutations";
 
 const fields = [
   {
@@ -58,6 +59,7 @@ const validationSchema = yup.object().shape({
 });
 
 const ContactUs = () => {
+  const { mutateAsync } = useContactMe();
   const formik = useFormik({
     validationSchema,
     initialValues: {
@@ -67,7 +69,10 @@ const ContactUs = () => {
       companyName: "",
       message: "",
     },
-    onSubmit: () => {},
+    onSubmit: (payload, helpers) => {
+      mutateAsync(payload);
+      helpers.resetForm();
+    },
   });
 
   const { openIntercom } = useIntercomActions();
