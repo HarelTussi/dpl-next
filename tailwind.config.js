@@ -50,7 +50,8 @@ module.exports = {
       },
       colors: {
         primary: {
-          100: " #0a0a0a",
+          110: "#C2C2C2",
+          100: "#0a0a0a",
           90: "#424242",
           80: "#182D5D",
           70: "#006DFF",
@@ -99,7 +100,7 @@ module.exports = {
         "2xl": "1440px",
       },
       boxShadow: {
-        'card': '0px 5px 14px rgba(80, 80, 80, 0.05)',
+        card: "0px 5px 14px rgba(80, 80, 80, 0.05)",
         "button-hover": "-9px 11px 15px rgba(0, 109, 255, 0.2)",
       },
     },
