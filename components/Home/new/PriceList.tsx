@@ -5,7 +5,8 @@ import { INISGHTS_LIST_URL } from "config";
 import Image from "next/image";
 const PriceList = () => {
   const onTakeMeThere = () => {
-    window && window.open(INISGHTS_LIST_URL);
+    // window && window.open(INISGHTS_LIST_URL);
+    window && window.open(INISGHTS_LIST_URL, "self");
   };
 
   return (

@@ -13,7 +13,7 @@ const GetTheList = ({
         className
       )}
       href={INISGHTS_CLIENT_URL + "/pricelist"}
-      target="_blank"
+      // target="_blank"
       rel="noreferrer"
       {...rest}
     >

@@ -105,7 +105,7 @@ py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0
           )}
         >
           <a
-            target="_blank"
+            // target="_blank"
             href={INISGHTS_CLIENT_URL + "/pricelist"}
             className="block pt-6 text-[21px] font-normal text-primary-100
       lg:mt-4 lg:p-0 lg:text-[15px]
@@ -138,7 +138,8 @@ py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0
         <button
           onClick={() => {
             track("InsightsEntrance");
-            window && window.open(INISGHTS_CLIENT_URL);
+            // window && window.open(INISGHTS_CLIENT_URL);
+            window && window.open(INISGHTS_CLIENT_URL, "self");
           }}
           className={clsx(
             `block w-full border-b border-b-primary-40 py-6 text-left text-[21px]
