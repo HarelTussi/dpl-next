@@ -16,6 +16,10 @@ class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
           />
+          <meta
+            name="facebook-domain-verification"
+            content="m7i7jtik3er9cotv4l4lreq88aizpf"
+          />
         </Head>
         <body>
           <noscript>
