@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import DPLMobileLogo from "../../assets/dpl-mobile-logo.svg";
 import DPLDesktopLogo from "../../assets/dpl-desktop-logo.svg";
+import DPLLogo from "../../assets/dpl-logo.svg";
 import Menu from "../../assets/menu.svg";
 import ChevronDown from "../../assets/chevron-down.svg";
 import X from "../../assets/x.svg";
@@ -191,7 +192,8 @@ const HeaderLeft = ({}) => {
       <Link href="/">
         <a className="flex items-center">
           <DPLMobileLogo className="lg:hidden" />
-          <DPLDesktopLogo className="hidden lg:block" />
+          <DPLLogo className="hidden lg:block" />
+          {/* <DPLDesktopLogo className="hidden lg:block" /> */}
         </a>
       </Link>
       <button
