@@ -6,24 +6,37 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import RouteListener from "@components/RouteListener/RouteListener";
 import Script from "next/script";
 import Intercom from "@components/Intercom";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { pageview } from "lib/gtm";
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  useEffect(() => {
+    router.events.on("routeChangeComplete", pageview);
+    return () => {
+      router.events.off("routeChangeComplete", pageview);
+    };
+  }, [router.events]);
+
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Google Tag Manager - Global base code */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=UA-183371956-1"
+        id="gtag-base"
         strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-WX3FJK9');
+          `,
+        }}
       />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-183371956-1');
-        `}
-      </Script>
       <RouteListener />
       <Header />
       <Component {...pageProps} />
