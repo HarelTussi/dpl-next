@@ -209,7 +209,14 @@ const HeaderLeft = ({}) => {
 const HeaderGetList = () => {
   return (
     <div className="lg:flex lg:flex-1 lg:items-center lg:justify-end">
-      <GetTheList className="my-8 h-[56px] w-full lg:m-0 lg:h-10 lg:w-[128px]" />
+      {/* <GetTheList className="my-8 h-[56px] w-full lg:m-0 lg:h-10 lg:w-[128px]" /> */}
+      <a
+        target="_self"
+        href={INISGHTS_CLIENT_URL}
+        className="text-primary-90 underline"
+      >
+        Login
+      </a>
     </div>
   );
 };
