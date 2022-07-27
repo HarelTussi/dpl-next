@@ -213,7 +213,7 @@ const HeaderGetList = () => {
       <a
         target="_self"
         href={INISGHTS_CLIENT_URL}
-        className="text-primary-90 underline"
+        className="pointer my-8 flex h-[56px] w-full items-center justify-center bg-black font-mullish text-white shadow-sm hover:bg-primary-90 active:bg-primary-90 disabled:bg-primary-40 disabled:text-primary-60 lg:m-0 lg:h-10 lg:w-[128px]"
       >
         Login
       </a>
