@@ -10,7 +10,8 @@ const FirstHero = () => {
   const { track } = useMixpanel();
   const onTakeMeThere = () => {
     track("InsightsEntranceStrip");
-    window && window.open(INISGHTS_CLIENT_URL);
+    // window && window.open(INISGHTS_CLIENT_URL);
+    window && window.open(INISGHTS_CLIENT_URL, "self");
   };
 
   return (

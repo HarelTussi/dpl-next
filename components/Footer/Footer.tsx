@@ -84,7 +84,7 @@ const Footer = () => {
                                   key={index}
                                   className="text-sm font-normal text-white"
                                   href={href}
-                                  target="_blank"
+                                  // target="_blank"
                                   rel="noreferrer"
                                 >
                                   {label}

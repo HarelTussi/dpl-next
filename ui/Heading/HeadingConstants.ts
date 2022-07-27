@@ -17,8 +17,7 @@ export const CLASSES = {
     "font-bold text-[75px] leading-[94px] xl:text-[100px] xl:leading-[113px] text-primary-100",
   "Display 02":
     "font-bold text-[38px] leading-[47px] md:text-[54px] md:leading-[61px] text-primary-100",
-  "Display 03":
-    "",
+  "Display 03": "",
   "Heading 01":
     "text-[40px] font-bold leading-[53px] text-primary-100 md:text-[48px] md:leading-[60px]",
   "Heading 02":
@@ -27,8 +26,8 @@ export const CLASSES = {
   "Subhead 02": "font-bold text-[21px] leading-[30px] md:leading-[50px]",
   "Subhead 03": "font-bold text-[19px] leading-[23px] md:leading-[50px]",
   "Subhead 04":
-    "font-bold text-[16px] leading-[36px] md:leading-[40px] text-primary-60",
-    "Subhead 05": "text-[21px] ",
-  "Card Header 01": "text-primary-80 text-[21px] font-bold font-poppins text-center mt-6"
-
+    "font-bold text-[16px] leading-[36px] md:leading-[40px] text-primary-110",
+  "Subhead 05": "text-[21px]",
+  "Card Header 01":
+    "text-primary-80 text-[21px] font-bold font-poppins text-center mt-6",
 };
