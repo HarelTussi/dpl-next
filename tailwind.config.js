@@ -74,9 +74,19 @@ module.exports = {
         black: "#0A0A0A",
         gray: "#E0E0E0",
         GET: "#FA922A",
+        primary2: {
+          200: "#182D5D",
+          100: "#006DFF",
+          50: "#ECF4FF",
+        },
+        secondary2: {
+          200: "#58627A",
+          100: "#A0AFC4",
+        },
       },
       fontFamily: {
         mullish: ["Mulish", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       borderWidth: {
         0.5: "0.5px",

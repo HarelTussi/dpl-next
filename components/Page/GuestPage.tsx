@@ -4,14 +4,21 @@ type Props = {
   children: React.ReactNode;
   withGridLines?: boolean;
   classNames?: string;
+  className?: string;
 };
 
-const GuestPage = ({ children, withGridLines = false, classNames }: Props) => {
+const GuestPage = ({
+  children,
+  withGridLines = false,
+  classNames,
+  className,
+}: Props) => {
   return (
     <div
       className={clsx(
-        "relative overflow-hidden flex min-h-full flex-col pt-[120px]  md:min-h-0 lg:min-h-0 xl:min-h-full xl:pt-[180px]  bg-no-repeat md:bg-contain bg-cover",
-        classNames
+        "relative flex min-h-full flex-col overflow-hidden bg-cover  bg-no-repeat pt-[120px] md:min-h-0 md:bg-contain  lg:min-h-0 xl:min-h-full xl:pt-[180px]",
+        classNames,
+        className
       )}
     >
       <div className="relative z-30 flex min-h-full flex-1 flex-col">
