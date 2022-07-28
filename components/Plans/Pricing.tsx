@@ -22,7 +22,13 @@ const Pricing = (props: Props) => {
       <Paragraph className="text-sm leading-6 text-primary2-200">
         Check out our early bird special price. It is a time-limited offer
       </Paragraph>
-      <div className="absolute top-1/2 left-0 z-[1] h-[250px] w-full rounded-full bg-primary2-100 opacity-40 blur-3xl"></div>
+      <div
+        className="absolute top-1/2 left-0 z-[1] h-[250px] w-full rounded-full bg-primary2-100 opacity-40 blur-3xl
+
+          lg:left-1/2 lg:w-[420px] lg:-translate-x-1/2
+
+      "
+      ></div>
       <div className="relative z-10">
         <Tab.Group>
           <Tab.List
