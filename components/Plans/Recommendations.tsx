@@ -15,7 +15,7 @@ const Recommendations = (props: Props) => {
       <div className="relative bg-primary2-50 pt-10 pb-24">
         <Heading
           type="Subhead 01"
-          className="mx-auto mb-2 max-w-[20ch] text-center !font-semibold text-primary2-200"
+          className="mx-auto mb-2 max-w-[20ch] text-center !font-semibold text-primary2-200 lg:max-w-full"
         >
           Don’t just take our word for it
         </Heading>
@@ -54,19 +54,12 @@ const Recommendations = (props: Props) => {
               initialSlide: 1,
               spaceBetween: 20,
               allowTouchMove: false,
-              width: 920,
-              wrapperClass: "mx-auto",
+              width: 980,
+              modules: [],
+              autoplay: false,
             },
           }}
         >
-          <SwiperSlide>
-            <Recommendation
-              quote="I was surprised at how quickly you could get comprehensive information about specific diamonds and their availability in the market; this kind of technology makes anyone feel like an analysis expert in diamonds."
-              name="Christopher Zoettl"
-              company="Designer Diamonds"
-              img="/assets/images/recommenders/chris.png"
-            />
-          </SwiperSlide>
           <SwiperSlide>
             <Recommendation
               quote="Our industry needs greater, faster data analysis; adding visual results makes it so much easier and intuitive to understand and take action. I like the solution created by DPL Insights and can definitely see how it can impact the industry for the better."
@@ -75,6 +68,15 @@ const Recommendations = (props: Props) => {
               img="/assets/images/recommenders/howard.png"
             />
           </SwiperSlide>
+          <SwiperSlide>
+            <Recommendation
+              quote="I was surprised at how quickly you could get comprehensive information about specific diamonds and their availability in the market; this kind of technology makes anyone feel like an analysis expert in diamonds."
+              name="Christopher Zoettl"
+              company="Designer Diamonds"
+              img="/assets/images/recommenders/chris.png"
+            />
+          </SwiperSlide>
+
           <SwiperSlide>
             <Recommendation
               quote="Proper research is time-consuming and requires multiple sources. Until now, real-time analysis of the market was thought to be impossible. Looking at the platform, I understand how “DPL Insights” is about to change all of that."
@@ -109,7 +111,7 @@ const Recommendation = ({
         <Star />
         <Star />
       </div>
-      <div className="mt-3 font-semibold leading-6 text-primary2-200 ">
+      <div className="mt-3 text-sm font-semibold leading-6 text-primary2-200">
         &quot;{quote}&quot;
       </div>
       <div className="mt-6 flex items-center">

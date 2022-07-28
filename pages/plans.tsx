@@ -21,8 +21,27 @@ const plans = (props: Props) => {
       <Compare />
       <Faqs />
       <style global jsx>{`
+        .plans-page {
+          background-color: rgba(229, 229, 229, 0.5);
+        }
+
         .plans-page * {
           font-family: var(--poppins) !important;
+        }
+
+        @media screen and (min-width: 1024px) {
+          .plans-page {
+            background-color: rgba(255, 255, 255, 1);
+          }
+
+          .swiper-wrapper {
+            display: flex;
+            justify-content: center;
+          }
+
+          .swiper-slide-next {
+            margin-right: 0 !important;
+          }
         }
       `}</style>
     </GuestPage>

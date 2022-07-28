@@ -16,65 +16,95 @@ const Compare = (props: Props) => {
       >
         Compare plans{" "}
       </Heading>
-      <Tab.Group>
-        <Tab.List
-          className={clsx(
-            "mb-4 grid grid-cols-2 overflow-hidden rounded-md border border-primary2-100"
-          )}
-        >
-          <Tab as={Fragment}>
-            {({ selected }) => (
-              <button
-                className={clsx(
-                  "py-2 text-sm",
-                  selected
-                    ? "rounded-tr-md rounded-br-md bg-primary2-100 font-bold text-white"
-                    : "bg-transparent text-primary2-100"
-                )}
-              >
-                Working with DPL
-              </button>
+      <div className="block lg:hidden">
+        <Tab.Group>
+          <Tab.List
+            className={clsx(
+              "mb-4 grid grid-cols-2 overflow-hidden rounded-md border border-primary2-100"
             )}
-          </Tab>
-          <Tab as={Fragment}>
-            {({ selected }) => (
-              <button
-                className={clsx(
-                  "py-2 text-sm",
-                  selected
-                    ? "rounded-tl-md rounded-bl-md bg-primary2-100 font-bold text-white"
-                    : "bg-transparent text-primary2-100"
-                )}
-              >
-                Working traditionally
-              </button>
-            )}
-          </Tab>
-        </Tab.List>
-        <Tab.Panels>
-          <Tab.Panel>
-            {new Array(8)
-              .fill({
-                check: true,
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-              })
-              .map((item, idx) => (
-                <Row {...item} key={idx} />
-              ))}
-          </Tab.Panel>
-          <Tab.Panel>
-            {" "}
-            {new Array(8)
-              .fill({
-                check: false,
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-              })
-              .map((item, idx) => (
-                <Row {...item} key={idx} />
-              ))}
-          </Tab.Panel>
-        </Tab.Panels>
-      </Tab.Group>
+          >
+            <Tab as={Fragment}>
+              {({ selected }) => (
+                <button
+                  className={clsx(
+                    "py-2 text-sm",
+                    selected
+                      ? "rounded-tr-md rounded-br-md bg-primary2-100 font-bold text-white"
+                      : "bg-transparent text-primary2-100"
+                  )}
+                >
+                  Working with DPL
+                </button>
+              )}
+            </Tab>
+            <Tab as={Fragment}>
+              {({ selected }) => (
+                <button
+                  className={clsx(
+                    "py-2 text-sm",
+                    selected
+                      ? "rounded-tl-md rounded-bl-md bg-primary2-100 font-bold text-white"
+                      : "bg-transparent text-primary2-100"
+                  )}
+                >
+                  Working traditionally
+                </button>
+              )}
+            </Tab>
+          </Tab.List>
+          <Tab.Panels>
+            <Tab.Panel>
+              {new Array(8)
+                .fill({
+                  check: true,
+                  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+                })
+                .map((item, idx) => (
+                  <Row {...item} key={idx} />
+                ))}
+            </Tab.Panel>
+            <Tab.Panel>
+              {" "}
+              {new Array(8)
+                .fill({
+                  check: false,
+                  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+                })
+                .map((item, idx) => (
+                  <Row {...item} key={idx} />
+                ))}
+            </Tab.Panel>
+          </Tab.Panels>
+        </Tab.Group>
+      </div>
+      <div className="hidden lg:mx-auto lg:mt-10 lg:grid lg:max-w-[900px] lg:grid-cols-2 lg:gap-8">
+        <div>
+          <h3 className="mb-4 text-xl font-semibold text-primary2-200">
+            Working with DPL
+          </h3>
+          {new Array(8)
+            .fill({
+              check: true,
+              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+            })
+            .map((item, idx) => (
+              <Row {...item} key={idx} />
+            ))}
+        </div>
+        <div>
+          <h3 className="mb-4 text-xl font-semibold text-primary2-200">
+            Working traditionally
+          </h3>
+          {new Array(8)
+            .fill({
+              check: false,
+              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+            })
+            .map((item, idx) => (
+              <Row {...item} key={idx} />
+            ))}
+        </div>
+      </div>
     </Container>
   );
 };

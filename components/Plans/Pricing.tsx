@@ -76,7 +76,7 @@ const Pricing = (props: Props) => {
 
 const Plan = () => {
   return (
-    <div className="flex w-full flex-col items-center rounded-md bg-white px-8 py-6 shadow-md">
+    <div className="mx-auto flex w-full max-w-[390px] flex-col items-center rounded-md bg-white px-8 py-6 shadow-md">
       <h3 className="mx-auto mb-2 text-xl font-semibold text-primary2-200">
         Premium Plan
       </h3>
