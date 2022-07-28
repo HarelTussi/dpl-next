@@ -4,13 +4,17 @@ import Faqs from "@components/Plans/Faqs";
 import Pricing from "@components/Plans/Pricing";
 import Recommendations from "@components/Plans/Recommendations";
 import Trusted from "@components/Plans/Trusted";
+import Head from "next/head";
 import React from "react";
 
 type Props = {};
 
 const plans = (props: Props) => {
   return (
-    <GuestPage className="plans-page bg-[#E5E5E5] bg-opacity-50">
+    <GuestPage className="plans-page bg-[#E5E5E5] bg-opacity-50 !pt-[86px]">
+      <Head>
+        <title>Plans and Pricing</title>
+      </Head>
       <Pricing />
       <Trusted />
       <Recommendations />

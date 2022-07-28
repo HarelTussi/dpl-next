@@ -8,11 +8,11 @@ type Props = {};
 
 const Trusted = (props: Props) => {
   return (
-    <div className="pb-10">
+    <div className="mb-6 bg-white py-8 pb-10">
       <Container>
         <Heading
           type="Subhead 01"
-          className="mx-auto mb-4 text-center text-primary2-200"
+          className="mx-auto mb-4 text-center !font-semibold text-primary2-200"
         >
           Trusted by the Leading Industry Professionals
         </Heading>

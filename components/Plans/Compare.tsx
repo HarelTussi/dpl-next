@@ -9,72 +9,73 @@ type Props = {};
 
 const Compare = (props: Props) => {
   return (
-    <Section>
-      <Container>
-        <Heading type="Subhead 01" className="mb-5 text-primary2-200">
-          Compare plans{" "}
-        </Heading>
-        <Tab.Group>
-          <Tab.List
-            className={clsx(
-              "mb-2 grid grid-cols-2 overflow-hidden rounded-md border border-primary2-100"
+    <Container className="mb-6 bg-white py-8">
+      <Heading
+        type="Subhead 01"
+        className="mb-5 !font-semibold text-primary2-200"
+      >
+        Compare plans{" "}
+      </Heading>
+      <Tab.Group>
+        <Tab.List
+          className={clsx(
+            "mb-4 grid grid-cols-2 overflow-hidden rounded-md border border-primary2-100"
+          )}
+        >
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              <button
+                className={clsx(
+                  "py-2 text-sm",
+                  selected
+                    ? "rounded-tr-md rounded-br-md bg-primary2-100 font-bold text-white"
+                    : "bg-transparent text-primary2-100"
+                )}
+              >
+                Working with DPL
+              </button>
             )}
-          >
-            <Tab as={Fragment}>
-              {({ selected }) => (
-                <button
-                  className={clsx(
-                    "py-2 text-sm",
-                    selected
-                      ? "rounded-tr-md rounded-br-md bg-primary2-100 font-bold text-white"
-                      : "bg-transparent text-primary2-100"
-                  )}
-                >
-                  Working with DPL
-                </button>
-              )}
-            </Tab>
-            <Tab as={Fragment}>
-              {({ selected }) => (
-                <button
-                  className={clsx(
-                    "py-2 text-sm",
-                    selected
-                      ? "rounded-tl-md rounded-bl-md bg-primary2-100 font-bold text-white"
-                      : "bg-transparent text-primary2-100"
-                  )}
-                >
-                  Working traditionally
-                </button>
-              )}
-            </Tab>
-          </Tab.List>
-          <Tab.Panels>
-            <Tab.Panel>
-              {new Array(8)
-                .fill({
-                  check: true,
-                  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                })
-                .map((item, idx) => (
-                  <Row {...item} key={idx} />
-                ))}
-            </Tab.Panel>
-            <Tab.Panel>
-              {" "}
-              {new Array(8)
-                .fill({
-                  check: true,
-                  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                })
-                .map((item, idx) => (
-                  <Row {...item} key={idx} />
-                ))}
-            </Tab.Panel>
-          </Tab.Panels>
-        </Tab.Group>
-      </Container>
-    </Section>
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              <button
+                className={clsx(
+                  "py-2 text-sm",
+                  selected
+                    ? "rounded-tl-md rounded-bl-md bg-primary2-100 font-bold text-white"
+                    : "bg-transparent text-primary2-100"
+                )}
+              >
+                Working traditionally
+              </button>
+            )}
+          </Tab>
+        </Tab.List>
+        <Tab.Panels>
+          <Tab.Panel>
+            {new Array(8)
+              .fill({
+                check: true,
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+              })
+              .map((item, idx) => (
+                <Row {...item} key={idx} />
+              ))}
+          </Tab.Panel>
+          <Tab.Panel>
+            {" "}
+            {new Array(8)
+              .fill({
+                check: false,
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+              })
+              .map((item, idx) => (
+                <Row {...item} key={idx} />
+              ))}
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
+    </Container>
   );
 };
 
