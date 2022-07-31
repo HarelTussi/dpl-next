@@ -6,7 +6,7 @@ import Image from "next/image";
 const PriceList = () => {
   const onTakeMeThere = () => {
     // window && window.open(INISGHTS_LIST_URL);
-    window && window.open(INISGHTS_LIST_URL, "self");
+    window && window.open(INISGHTS_LIST_URL, "_self");
   };
 
   return (

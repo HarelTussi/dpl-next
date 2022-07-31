@@ -12,7 +12,7 @@ const Hero = () => {
   const onTakeMeThere = () => {
     track("InsightsEntranceStrip");
     // window && window.open(INISGHTS_CLIENT_URL);
-    window && window.open(INISGHTS_CLIENT_URL, "self");
+    window && window.open(INISGHTS_CLIENT_URL, "_self");
   };
 
   return (

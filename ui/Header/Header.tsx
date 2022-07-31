@@ -140,7 +140,7 @@ py-6 lg:relative lg:border-b-0 lg:border-primary-100 lg:p-0
           onClick={() => {
             track("InsightsEntrance");
             // window && window.open(INISGHTS_CLIENT_URL);
-            window && window.open(INISGHTS_CLIENT_URL, "self");
+            window && window.open(INISGHTS_CLIENT_URL, "_self");
           }}
           className={clsx(
             `block w-full border-b border-b-primary-40 py-6 text-left text-[21px]
