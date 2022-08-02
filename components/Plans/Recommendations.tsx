@@ -65,7 +65,7 @@ const Recommendations = (props: Props) => {
           <SwiperSlide>
             <Recommendation
               quote="Our industry needs greater, faster data analysis; adding visual results makes it so much easier and intuitive to understand and take action. I like the solution created by DPL Insights and can definitely see how it can impact the industry for the better."
-              name="Howard Hauben"
+              name="Howard Hauben, President & CEO"
               company="Centurion Jewelry By Invitation Only, LLC"
               img="/assets/images/recommenders/howard.png"
             />
@@ -82,7 +82,7 @@ const Recommendations = (props: Props) => {
           <SwiperSlide>
             <Recommendation
               quote="Proper research is time-consuming and requires multiple sources. Until now, real-time analysis of the market was thought to be impossible. Looking at the platform, I understand how “DPL Insights” is about to change all of that."
-              name="Raj Mehta"
+              name="Raj Mehta, Director"
               company="Rosy Blue"
               img="/assets/images/recommenders/raj.png"
             />
