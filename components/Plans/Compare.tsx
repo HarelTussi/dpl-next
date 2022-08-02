@@ -114,27 +114,59 @@ const Compare = (props: Props) => {
           <h3 className="mb-4 text-xl font-semibold text-primary2-200">
             Working with DPL
           </h3>
-          {new Array(8)
-            .fill({
+          {[
+            {
               check: true,
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-            })
-            .map((item, idx) => (
-              <Row {...item} key={idx} />
-            ))}
+              text: content.thirdSectionDescriptionA,
+            },
+            {
+              check: true,
+              text: content.thirdSectionDescriptionB,
+            },
+            {
+              check: true,
+              text: content.thirdSectionDescriptionC,
+            },
+            {
+              check: true,
+              text: content.thirdSectionDescriptionD,
+            },
+            {
+              check: true,
+              text: content.thirdSectionDescriptionE,
+            },
+          ].map((item, idx) => (
+            <Row {...item} key={idx} />
+          ))}
         </div>
         <div>
           <h3 className="mb-4 text-xl font-semibold text-primary2-200">
             Working traditionally
           </h3>
-          {new Array(8)
-            .fill({
+          {[
+            {
               check: false,
-              text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-            })
-            .map((item, idx) => (
-              <Row {...item} key={idx} />
-            ))}
+              text: content.thirdSectionDescription1,
+            },
+            {
+              check: false,
+              text: content.thirdSectionDescription2,
+            },
+            {
+              check: false,
+              text: content.thirdSectionDescription3,
+            },
+            {
+              check: false,
+              text: content.thirdSectionDescription4,
+            },
+            {
+              check: false,
+              text: content.thirdSectionDescription5,
+            },
+          ].map((item, idx) => (
+            <Row {...item} key={idx} />
+          ))}
         </div>
       </div>
     </Container>
@@ -174,7 +206,6 @@ const Row = ({ check, text }: { check: boolean; text: string }) => {
           </svg>
         )}
       </div>
-
       <p className="pl-4 text-sm leading-7 text-primary2-200">{text}</p>
     </div>
   );

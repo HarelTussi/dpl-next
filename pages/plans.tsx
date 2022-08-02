@@ -125,8 +125,6 @@ const getPlansFaqContent = () => {
   rows.forEach(([key, value]: any) => {
     faqs.push({ question: key, answer: value });
   });
-  console.log(faqs);
-
   return faqs;
 };
 
