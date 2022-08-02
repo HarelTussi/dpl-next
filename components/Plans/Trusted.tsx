@@ -3,10 +3,12 @@ import Heading from "@ui/Heading";
 import "swiper/css";
 import Image from "next/image";
 import styles from "./Trusted.module.css";
+import { usePlansContent } from "pages/plans";
 
 type Props = {};
 
 const Trusted = (props: Props) => {
+  const { content } = usePlansContent();
   return (
     <div className="mb-6 bg-white py-8 pb-10">
       <Container>
@@ -14,7 +16,7 @@ const Trusted = (props: Props) => {
           type="Subhead 01"
           className="mx-auto mb-4 text-center !font-semibold text-primary2-200"
         >
-          Trusted by the Leading Industry Professionals
+          {content.thirdSectionHeader}
         </Heading>
       </Container>
       <Slider />

@@ -6,10 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
 import Image from "next/image";
+import { usePlansContent } from "pages/plans";
 
 type Props = {};
 
 const Recommendations = (props: Props) => {
+  const { content } = usePlansContent();
   return (
     <div className="mb-6">
       <div className="relative bg-primary2-50 pt-10 pb-24">
@@ -17,11 +19,11 @@ const Recommendations = (props: Props) => {
           type="Subhead 01"
           className="mx-auto mb-2 max-w-[20ch] text-center !font-semibold text-primary2-200 lg:max-w-full"
         >
-          Don’t just take our word for it
+          {content.thirdSectionTitle}
         </Heading>
-        <Paragraph className="mx-auto text-center text-primary2-200">
-          Ask other people...
-        </Paragraph>
+        {/* <Paragraph className="mx-auto text-center text-primary2-200">
+          {content.thirdSectionSubTitle}
+        </Paragraph> */}
       </div>
       <div className="-mt-[80px]">
         <Swiper
@@ -33,21 +35,21 @@ const Recommendations = (props: Props) => {
           spaceBetween={24}
           autoplay={{ delay: 4500, disableOnInteraction: true }}
           modules={[Autoplay]}
-          initialSlide={2}
+          initialSlide={1}
           breakpoints={{
             320: {
               slidesPerView: 1.2,
               spaceBetween: 24,
               autoplay: { delay: 4500, disableOnInteraction: true },
               modules: [Autoplay],
-              initialSlide: 2,
+              initialSlide: 1,
             },
             678: {
               slidesPerView: 1.5,
               spaceBetween: 20,
               autoplay: { delay: 4500, disableOnInteraction: true },
               modules: [Autoplay],
-              initialSlide: 2,
+              initialSlide: 1,
             },
             1024: {
               slidesPerView: 3,

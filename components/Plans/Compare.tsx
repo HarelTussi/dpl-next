@@ -1,20 +1,21 @@
 import Heading from "@ui/Heading";
-import Section from "@ui/Section";
 import React, { Fragment } from "react";
 import { Tab } from "@headlessui/react";
 import Container from "@ui/Container";
 import { clsx } from "utils/index";
+import { usePlansContent } from "pages/plans";
 
 type Props = {};
 
 const Compare = (props: Props) => {
+  const { content } = usePlansContent();
   return (
     <Container className="mb-6 bg-white py-8">
       <Heading
         type="Subhead 01"
         className="mb-5 !font-semibold text-primary2-200"
       >
-        Compare plans{" "}
+        {content.thirdSectionSubTitle}
       </Heading>
       <div className="block lg:hidden">
         <Tab.Group>
@@ -33,7 +34,7 @@ const Compare = (props: Props) => {
                       : "bg-transparent text-primary2-100"
                   )}
                 >
-                  Working with DPL
+                  {content.thirdSectionDescriptionMain2}
                 </button>
               )}
             </Tab>
@@ -47,32 +48,63 @@ const Compare = (props: Props) => {
                       : "bg-transparent text-primary2-100"
                   )}
                 >
-                  Working traditionally
+                  {content.thirdSectionDescriptionMain1}
                 </button>
               )}
             </Tab>
           </Tab.List>
           <Tab.Panels>
             <Tab.Panel>
-              {new Array(8)
-                .fill({
+              {[
+                {
                   check: true,
-                  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                })
-                .map((item, idx) => (
-                  <Row {...item} key={idx} />
-                ))}
+                  text: content.thirdSectionDescriptionA,
+                },
+                {
+                  check: true,
+                  text: content.thirdSectionDescriptionB,
+                },
+                {
+                  check: true,
+                  text: content.thirdSectionDescriptionC,
+                },
+                {
+                  check: true,
+                  text: content.thirdSectionDescriptionD,
+                },
+                {
+                  check: true,
+                  text: content.thirdSectionDescriptionE,
+                },
+              ].map((item, idx) => (
+                <Row {...item} key={idx} />
+              ))}
             </Tab.Panel>
             <Tab.Panel>
-              {" "}
-              {new Array(8)
-                .fill({
+              {[
+                {
                   check: false,
-                  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                })
-                .map((item, idx) => (
-                  <Row {...item} key={idx} />
-                ))}
+                  text: content.thirdSectionDescription1,
+                },
+                {
+                  check: false,
+                  text: content.thirdSectionDescription2,
+                },
+                {
+                  check: false,
+                  text: content.thirdSectionDescription3,
+                },
+                {
+                  check: false,
+                  text: content.thirdSectionDescription4,
+                },
+                {
+                  check: false,
+                  text: content.thirdSectionDescription5,
+                },
+              ].map((item, idx) => (
+                <Row {...item} key={idx} />
+              ))}
             </Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
