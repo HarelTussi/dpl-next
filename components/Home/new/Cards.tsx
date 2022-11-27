@@ -8,7 +8,7 @@ const cards = [
     imageName: "data-icon.svg",
     header: "Data is your superpower",
     content:
-      "Experience user-friendly, powerful real-time analysis features that enable better, faster transactional decisions, boost pricing strategy, and maximize expertise for any type of B2B trader, all in one place.",
+      "Experience user-friendly, powerful real-time analysis features that enable better, faster transactional decisions and boost pricing strategy, all in one place.",
   },
   {
     imageName: "business-icon.svg",

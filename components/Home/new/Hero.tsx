@@ -34,8 +34,8 @@ const Hero = () => {
           type="Display 03"
           className="flex w-full items-center justify-center text-center text-[34px] font-bold leading-[46px] text-primary-80 md:text-[56px] md:leading-[62px]"
         >
-          The first and only REAL-TIME market <br /> insights platform for your
-          business
+          Empowering Polished Diamond Traders, <br />
+          with Visual Data in REAL-TIME business
         </Heading>
         <Paragraph className="mx-auto mt-2 flex w-full max-w-[835px] items-center justify-center text-center text-primary-80">
           Get a live data analytics view of the industry’s supply, demand, and
