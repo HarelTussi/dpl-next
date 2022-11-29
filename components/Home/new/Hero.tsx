@@ -35,7 +35,7 @@ const Hero = () => {
           className="flex w-full items-center justify-center text-center text-[34px] font-bold leading-[46px] text-primary-80 md:text-[56px] md:leading-[62px]"
         >
           Empowering Polished Diamond Traders, <br />
-          with Visual Data in REAL-TIME business
+          with Visual Data in REAL-TIME
         </Heading>
         <Paragraph className="mx-auto mt-2 flex w-full max-w-[835px] items-center justify-center text-center text-primary-80">
           Get a live data analytics view of the industry’s supply, demand, and
